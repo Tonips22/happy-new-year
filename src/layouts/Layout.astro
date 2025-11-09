@@ -6,6 +6,11 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Feliz Año Nuevo</title>
+
+		<!-- Fonts -->
+		 <link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 	</head>
 	<body>
 		<slot />
@@ -13,17 +18,16 @@
 </html>
 
 <style>
-	@font-face {
-		font-family: 'Saint George';
-		src: url('/fonts/SaintGeorgeLowercaseStencil.woff2') format('woff2');
+	/* @font-face {
+		font-family: 'Orbitron';
 
 		font-weight: 400;
 		font-style: normal; 
 		font-display: block;
-	}
+	} */
 
 	:root {
-		color-scheme: light light;
+		color-scheme: light dark;
 		
 		/*Colors*/
 		--bg: #0a0a0a;
@@ -32,8 +36,8 @@
 		--gold-alt: #FFA500;
 
 		/*Fonts*/
-		--primary-font: 'Saint George', sans-serif;
-		--secondary-font: 'DM Sans Variable', sans-serif;
+		--primary-font: 'Orbitron', sans-serif;
+		--secondary-font: 'Space Grotesk', sans-serif;
 
 		/* font-synthesis: none;
 			text-rendering: optimizeLegibility;
@@ -43,18 +47,20 @@
 
 	* { margin: 0; padding: 0; }
 	*, *::before, *::after { box-sizing: border-box; }
-	html { font-size: 16px; scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--green) var(--beige);}
+	html { font-size: 16px; scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--gold) var(--bg);}
 	body {
 		font-family: var(--secondary-font);
 		min-height: 100vh;
 		max-width: 1920px;
 		margin: 0 auto;
+		background-color: var(--bg);
+		color: var(--text);
 	}
 
 	input, button, textarea, select { font: inherit; }
 	p { text-wrap: pretty; overflow-wrap: break-word; }
 	h1, h2, h3, h4, h5, h6 { text-wrap: balance; overflow-wrap: break-word;}
-	h1{ font-family: var(--secondary-font); font-size: 3.2rem; }
+	h1{ font-family: var(--primary-font); font-size: 3.2rem; }
 	img, video, svg { max-width: 100%; height: auto; }
 	a { text-decoration: none; color: inherit; }
 	ul, ol { list-style: none; }
