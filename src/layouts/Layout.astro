@@ -1,3 +1,14 @@
+---
+interface Props {
+	title: string;
+	description: string;
+}
+import "@styles/global.css";
+
+const { title, description } = Astro.props;
+
+---
+
 <!doctype html>
 <html lang="es">
 	<head>
@@ -5,7 +16,8 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Feliz Año Nuevo</title>
+		<meta name="description" content={description} />
+		<title>{title}</title>
 
 		<!-- Fonts -->
 		 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,15 +29,7 @@
 	</body>
 </html>
 
-<style>
-	/* @font-face {
-		font-family: 'Orbitron';
-
-		font-weight: 400;
-		font-style: normal; 
-		font-display: block;
-	} */
-
+<style is:global>
 	:root {
 		color-scheme: light dark;
 		
@@ -38,16 +42,15 @@
 		/*Fonts*/
 		--primary-font: 'Orbitron', sans-serif;
 		--secondary-font: 'Space Grotesk', sans-serif;
-
-		/* font-synthesis: none;
-			text-rendering: optimizeLegibility;
-			-webkit-font-smoothing: antialiased;
-			-moz-osx-font-smoothing: grayscale; */
 	}
-
-	* { margin: 0; padding: 0; }
-	*, *::before, *::after { box-sizing: border-box; }
-	html { font-size: 16px; scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--gold) var(--bg);}
+	
+	html { 
+		font-size: 16px; 
+		scroll-behavior: smooth; 
+		scrollbar-width: thin; 
+		scrollbar-color: var(--gold) var(--bg);
+	}
+	
 	body {
 		font-family: var(--secondary-font);
 		min-height: 100vh;
@@ -57,17 +60,10 @@
 		color: var(--text);
 	}
 
-	input, button, textarea, select { font: inherit; }
-	p { text-wrap: pretty; overflow-wrap: break-word; }
-	h1, h2, h3, h4, h5, h6 { text-wrap: balance; overflow-wrap: break-word;}
-	h1{ font-family: var(--primary-font); font-size: 3.2rem; }
-	img, video, svg { max-width: 100%; height: auto; }
-	a { text-decoration: none; color: inherit; }
-	ul, ol { list-style: none; }
 	*::selection {
-        background-color: var(--gold);
-        color: var(--bg);
-    }
+		background-color: var(--gold);
+		color: var(--bg);
+	}
 
 	@media (prefers-color-scheme: light) {
 		:root {

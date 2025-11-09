@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme{
+    /*Colors*/
+    --color-bg: var(--bg);
+    --color-text: var(--text);
+    --color-gold: var(--gold);
+    --color-gold-alt: var(--gold-alt);
+
+    /*Fonts*/
+    --font-primary: var(--primary-font);
+    --font-secondary: var(--secondary-font);
+}
+
+/* Estilos base personalizados - se aplican después de Tailwind */
+@layer base {
+    h1 {
+        font-family: var(--primary-font);
+        font-size: 3.2rem;
+        text-wrap: balance;
+        overflow-wrap: break-word;
+    }
+    
+    h2, h3, h4, h5, h6 {
+        text-wrap: balance;
+        overflow-wrap: break-word;
+    }
+    
+    p {
+        text-wrap: pretty;
+        overflow-wrap: break-word;
+    }
+    
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    ul, ol {
+        list-style: none;
+    }
+    
+    img, video, svg {
+        max-width: 100%;
+        height: auto;
+    }
+}
