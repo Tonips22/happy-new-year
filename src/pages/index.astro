@@ -1,8 +1,9 @@
 ---
 import Layout from '@layouts/Layout.astro';
 const nextYear: number = new Date().getFullYear() + 1;
+import Countdown from '@components/Countdown.astro';
 ---
 
 <Layout title={`Feliz año ${nextYear}`} description="Contador regresivo para el Año Nuevo">
-  <h1 class=" text-xs">Tiempo restante para el Año {nextYear}!</h1>
+  <Countdown />
 </Layout>

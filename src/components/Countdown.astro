@@ -1,0 +1,158 @@
+---
+// Calculamos la fecha objetivo: 31 diciembre 2025 a las 23:59:59 CET
+const year = new Date().getFullYear();
+const targetDate = new Date(`${year}-12-31T23:59:59+01:00`); // +01:00 = CET
+const now = new Date();
+const diff = targetDate.getTime() - now.getTime();
+
+// Calculamos valores iniciales para SSR (SEO friendly)
+const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+const segundos = Math.floor((diff % (1000 * 60)) / 1000);
+---
+
+<section class="countdown-container">
+  <div class="number-box">
+    <span class="number" id="dias">{dias.toString().padStart(2, '0')}</span>
+    <span class="label">Días</span>
+  </div>
+  
+  <div class="number-box">
+    <span class="number" id="horas">{horas.toString().padStart(2, '0')}</span>
+    <span class="label">Horas</span>
+  </div>
+  
+  <div class="number-box">
+    <span class="number" id="minutos">{minutos.toString().padStart(2, '0')}</span>
+    <span class="label">Minutos</span>
+  </div>
+  
+  <div class="number-box">
+    <span class="number" id="segundos">{segundos.toString().padStart(2, '0')}</span>
+    <span class="label">Segundos</span>
+  </div>
+</section>
+
+<div class="mensaje-final" id="mensaje-final" style="display: none;">
+  <h2>🎉 ¡Feliz Año Nuevo 2026! 🎊</h2>
+</div>
+
+<style>
+  .countdown-container {
+    display: grid;
+    place-content: center;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+
+    @media (width >= 768px) {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+  }
+
+
+  .number-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem;
+    transition: transform 0.3s ease;
+    cursor: default;
+  }
+
+  .number {
+    font-family: var(--primary-font);
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+
+    @media (width >= 768px) {
+        font-size: 5rem;
+    }
+  }
+
+
+  .number-box:hover {
+    transform: scale(1.05);
+  }
+
+  .label {
+    font-family: var(--secondary-font);
+    font-size: 1rem;
+    color: var(--text);
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .mensaje-final {
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+
+  .mensaje-final h2 {
+    font-family: var(--primary-font);
+    font-size: 2.5rem;
+    color: var(--gold);
+    animation: celebrar 1s ease-in-out infinite alternate;
+  }
+
+  @keyframes celebrar {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .number {
+      transition: none;
+    }
+    .mensaje-final h2 {
+      animation: none;
+    }
+    .number-box:hover .number {
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  function actualizarContador() {
+    // Fecha objetivo en zona horaria española
+    const targetDate = new Date('2025-12-31T23:59:59+01:00');
+    const now = new Date();
+    const diff = targetDate.getTime() - now.getTime();
+
+    // Si llegamos a 0 o pasamos la fecha
+    if (diff <= 0) {
+      document.getElementById('mensaje-final')!.style.display = 'block';
+      document.querySelector('.countdown-container')!.remove();
+      return;
+    }
+
+    // Cálculos
+    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((diff % (1000 * 60)) / 1000);
+
+    // Actualizar DOM
+    document.getElementById('dias')!.textContent = dias.toString().padStart(2, '0');
+    document.getElementById('horas')!.textContent = horas.toString().padStart(2, '0');
+    document.getElementById('minutos')!.textContent = minutos.toString().padStart(2, '0');
+    document.getElementById('segundos')!.textContent = segundos.toString().padStart(2, '0');
+  }
+
+  // Actualizar inmediatamente y luego cada segundo
+  actualizarContador();
+  const interval = setInterval(actualizarContador, 1000);
+
+  // Limpieza cuando se cierra la página
+  window.addEventListener('beforeunload', () => {
+    clearInterval(interval);
+  });
+</script>
