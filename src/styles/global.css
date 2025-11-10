@@ -16,6 +16,18 @@
 
 /* Estilos base personalizados - se aplican después de Tailwind */
 @layer base {
+    /* Transición suave para cambio de tema */
+    * {
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
+    /* Deshabilitar transiciones para usuarios con preferencia de movimiento reducido */
+    @media (prefers-reduced-motion: reduce) {
+        * {
+            transition: none !important;
+        }
+    }
+
     h1 {
         font-family: var(--primary-font);
         font-size: 3.2rem;

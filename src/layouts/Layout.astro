@@ -18,6 +18,22 @@ const { title, description } = Astro.props;
 		<meta name="description" content={description} />
 		<title>{title}</title>
 
+		<!-- Script inline para evitar flash de tema incorrecto (FOUC) -->
+		<script is:inline>
+			// Este script se ejecuta de forma síncrona antes de renderizar el body
+			(function() {
+				const getTheme = () => {
+					const saved = localStorage.getItem('theme-preference');
+					if (saved) return saved;
+					return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+				};
+				
+				const theme = getTheme();
+				document.documentElement.classList.add(theme);
+				document.documentElement.setAttribute('data-theme', theme);
+			})();
+		</script>
+
 		<!-- Fonts -->
 		 <link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,17 +48,30 @@ const { title, description } = Astro.props;
 	:root {
 		color-scheme: light dark;
 		
-		/*Colors*/
+		/*Fonts*/
+		--primary-font: 'Orbitron', sans-serif;
+		--secondary-font: 'Space Grotesk', sans-serif;
+	}
+
+	/* Tema oscuro por defecto */
+	:root,
+	:root.dark {
 		--bg: #0a0a0a;
 		--text: #ffffff;
 		--text60: #ffffff60;
 		--gold: #FFD700;
 		--gold25: #ffd70040;
 		--gold-alt: #FFA500;
+	}
 
-		/*Fonts*/
-		--primary-font: 'Orbitron', sans-serif;
-		--secondary-font: 'Space Grotesk', sans-serif;
+	/* Tema claro */
+	:root.light {
+		--bg: #ffffff;
+		--text: #0a0a0a;
+		--text60: #0a0a0a60;
+		--gold: #DAA520;
+		--gold25: #DAA52040;
+		--gold-alt: #FF8C00;
 	}
 	
 	html { 
@@ -64,18 +93,6 @@ const { title, description } = Astro.props;
 	*::selection {
 		background-color: var(--gold);
 		color: var(--bg);
-	}
-
-	@media (prefers-color-scheme: light) {
-		:root {
-			/*Colors*/
-			--bg: #ffffff;
-			--text: #0a0a0a;
-			--text60: #0a0a0a60;
-			--gold: #DAA520;
-			--gold25: #DAA52040;
-			--gold-alt: #FF8C00;
-		}
 	}
 
 	@media (prefers-reduced-motion: reduce) {

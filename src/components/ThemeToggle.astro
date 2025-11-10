@@ -1,0 +1,127 @@
+---
+// Componente para cambiar entre modo claro y oscuro
+---
+
+<button
+  id="theme-toggle"
+  class="theme-toggle"
+  aria-label="Cambiar tema"
+  title="Cambiar tema"
+>
+  <!-- Icono del Sol (modo claro) -->
+  <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="4"/>
+    <path d="M12 2v2"/>
+    <path d="M12 20v2"/>
+    <path d="m4.93 4.93 1.41 1.41"/>
+    <path d="m17.66 17.66 1.41 1.41"/>
+    <path d="M2 12h2"/>
+    <path d="M20 12h2"/>
+    <path d="m6.34 17.66-1.41 1.41"/>
+    <path d="m19.07 4.93-1.41 1.41"/>
+  </svg>
+
+  <!-- Icono de la Luna (modo oscuro) -->
+  <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+  </svg>
+</button>
+
+<style>
+  .theme-toggle {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+
+  .theme-toggle:hover {
+    background: var(--gold);
+    transform: scale(1.05);
+    border-color: var(--gold-alt);
+  }
+
+  .theme-toggle:active {
+    transform: scale(0.95);
+  }
+
+  .theme-toggle svg {
+    position: absolute;
+    color: var(--gold);
+    transition: all 0.3s ease;
+  }
+
+  .theme-toggle:hover svg {
+    color: var(--bg);
+  }
+
+  /* Por defecto (tema oscuro): mostrar sol */
+  .sun-icon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+
+  .moon-icon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0);
+  }
+
+  /* Tema claro: mostrar luna */
+  :global(.light) .sun-icon {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0);
+  }
+
+  :global(.light) .moon-icon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .theme-toggle,
+    .theme-toggle svg {
+      transition: none;
+    }
+    
+    .theme-toggle:hover {
+      transform: none;
+    }
+    
+    .theme-toggle:active {
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  import { toggleTheme, getSavedTheme } from '@/utils/theme';
+
+  const button = document.getElementById('theme-toggle') as HTMLButtonElement;
+
+  if (button) {
+    button.addEventListener('click', () => {
+      const newTheme = toggleTheme();
+      
+      // Actualizar el aria-label para accesibilidad
+      button.setAttribute(
+        'aria-label',
+        newTheme === 'light' ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro'
+      );
+    });
+
+    // Configurar el aria-label inicial
+    const currentTheme = getSavedTheme();
+    button.setAttribute(
+      'aria-label',
+      currentTheme === 'light' ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro'
+    );
+  }
+</script>
