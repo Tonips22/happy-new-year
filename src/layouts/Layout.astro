@@ -35,7 +35,9 @@ const { title, description } = Astro.props;
 		/*Colors*/
 		--bg: #0a0a0a;
 		--text: #ffffff;
+		--text60: #ffffff60;
 		--gold: #FFD700;
+		--gold25: #ffd70040;
 		--gold-alt: #FFA500;
 
 		/*Fonts*/
@@ -55,9 +57,21 @@ const { title, description } = Astro.props;
 		min-height: 100vh;
 		max-width: 1920px;
 		margin: 0 auto;
-		background-color: var(--bg);
+		background: radial-gradient(ellipse 80% 60% at 50% 0%, var(--gold25), transparent 70%), var(--bg);
 		color: var(--text);
 	}
+
+	<div className="min-h-screen w-full relative bg-black">
+    {/* Golden Horizon Background with Top Glow */}
+    <div
+      className="absolute inset-0 z-0"
+      style={{
+       
+      }}
+    />
+  
+    {/* Your Content/Components */}
+  </div>
 
 	*::selection {
 		background-color: var(--gold);
@@ -69,7 +83,9 @@ const { title, description } = Astro.props;
 			/*Colors*/
 			--bg: #ffffff;
 			--text: #0a0a0a;
+			--text60: #0a0a0a60;
 			--gold: #DAA520;
+			--gold25: #DAA52040;
 			--gold-alt: #FF8C00;
 		}
 	}

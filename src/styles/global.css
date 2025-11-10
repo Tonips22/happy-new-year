@@ -4,7 +4,9 @@
     /*Colors*/
     --color-bg: var(--bg);
     --color-text: var(--text);
+    --color-text60: var(--text60);
     --color-gold: var(--gold);
+    --color-gold25: var(--gold25);
     --color-gold-alt: var(--gold-alt);
 
     /*Fonts*/
