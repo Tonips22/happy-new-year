@@ -29,60 +29,55 @@
 
 <style>
   .theme-toggle {
-    position: relative;
-    width: 48px;
-    height: 48px;
-    border: 2px solid var(--gold);
-    border-radius: 50%;
     background: transparent;
+    border: none;
     cursor: pointer;
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
-    overflow: hidden;
+    transition: transform 0.2s ease;
   }
 
   .theme-toggle:hover {
-    background: var(--gold);
-    transform: scale(1.05);
-    border-color: var(--gold-alt);
+    transform: scale(1.1);
   }
 
   .theme-toggle:active {
-    transform: scale(0.95);
+    transform: scale(0.9);
   }
 
   .theme-toggle svg {
-    position: absolute;
+    width: 24px;
+    height: 24px;
     color: var(--gold);
     transition: all 0.3s ease;
   }
 
   .theme-toggle:hover svg {
-    color: var(--bg);
+    color: var(--gold-alt);
   }
 
   /* Por defecto (tema oscuro): mostrar sol */
   .sun-icon {
     opacity: 1;
-    transform: rotate(0deg) scale(1);
+    transform: rotate(0deg);
   }
 
   .moon-icon {
+    display: none;
     opacity: 0;
-    transform: rotate(90deg) scale(0);
   }
 
   /* Tema claro: mostrar luna */
   :global(.light) .sun-icon {
+    display: none;
     opacity: 0;
-    transform: rotate(-90deg) scale(0);
   }
 
   :global(.light) .moon-icon {
+    display: block;
     opacity: 1;
-    transform: rotate(0deg) scale(1);
   }
 
   @media (prefers-reduced-motion: reduce) {
