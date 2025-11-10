@@ -6,6 +6,8 @@ import Footer from '@components/Footer.astro';
 ---
 
 <Layout title={`Feliz año ${nextYear}`} description="Contador regresivo para el Año Nuevo">
-  <Hero />
-  <Footer />
+  <main class="min-h-screen flex flex-col justify-between">
+    <Hero />
+    <Footer />
+  </main>
 </Layout>
