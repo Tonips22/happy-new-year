@@ -70,6 +70,7 @@ const segundos = Math.floor((diff % (1000 * 60)) / 1000);
     font-weight: 700;
     color: var(--gold);
     line-height: 1;
+    transition: color 0.3s ease;
 
     @media (width >= 768px) {
         font-size: 5rem;
@@ -79,6 +80,10 @@ const segundos = Math.floor((diff % (1000 * 60)) / 1000);
 
   .number-box:hover {
     transform: scale(1.05);
+  }
+
+  .number-box:hover .number {
+    color: var(--gold-alt);
   }
 
   .label {
