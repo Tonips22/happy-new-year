@@ -20,3 +20,14 @@ import Countdown from "@/components/Countdown.astro"
     
   </div>
 </section>
+
+<script>
+  import { throwConfetti } from "@utils/canvas";
+  const submitButton = document.querySelector('input[type="submit"]') as HTMLInputElement;
+
+  submitButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    throwConfetti();
+  });
+
+</script>
