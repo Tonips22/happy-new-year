@@ -15,7 +15,10 @@ const { name, flag, daysLeft, hoursLeft, minutesLeft, secondsLeft } = Astro.prop
         <img src={flag} alt={`Bandera de ${name}`}/>
         <h2 class="uppercase font-bold">{name}</h2>
     </div>
-    <p class="text-sm text-gray-500">
-        {daysLeft}d {hoursLeft}h {minutesLeft}m {secondsLeft}s
+    <p class="text-sm text-text60">
+        <span class="text-gold-alt">{daysLeft}</span>d
+        <span class="text-gold-alt">{hoursLeft}</span>h
+        <span class="text-gold-alt">{minutesLeft}</span>m
+        <span class="text-gold-alt">{secondsLeft}</span>s
     </p>
 </article>
