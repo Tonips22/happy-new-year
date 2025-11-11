@@ -1,0 +1,72 @@
+---
+import CountryCard from "@components/CountryCard.astro"
+const countries = [
+  {
+    name: "Reino Unido",
+    timezone: "Europe/London",
+    flag: "/icons/flags/uk.svg"
+  },
+  {
+    name: "México",
+    timezone: "America/Mexico_City",
+    flag: "/icons/flags/mexico.svg"
+  },
+  {
+    name: "Argentina",
+    timezone: "America/Argentina/Buenos_Aires",
+    flag: "/icons/flags/argentina.svg"
+  },
+  {
+    name: "Colombia",
+    timezone: "America/Bogota",
+    flag: "/icons/flags/colombia.svg"
+  },
+  {
+    name: "Chile",
+    timezone: "America/Santiago",
+    flag: "/icons/flags/chile.svg"
+  },
+  {
+    name: "Perú",
+    timezone: "America/Lima",
+    flag: "/icons/flags/peru.svg"
+  },
+  {
+    name: "Venezuela",
+    timezone: "America/Caracas",
+    flag: "/icons/flags/venezuela.svg"
+  },
+  {
+    name: "Ecuador",
+    timezone: "America/Guayaquil",
+    flag: "/icons/flags/ecuador.svg"
+  }, 
+  {
+    name: "China",
+    timezone: "Asia/Shanghai",
+    flag: "/icons/flags/china.svg"
+  },
+  {
+    name: "Japón",
+    timezone: "Asia/Tokyo",
+    flag: "/icons/flags/japan.svg"
+  }
+];
+
+---
+
+<section class="grid grid-cols-1 md:grid-cols-2 max-w-[80%] md:max-w-[60%] mx-auto mt-16 gap-4 mb-16">
+    {
+    countries.map(country => (
+            <CountryCard 
+                name={country.name} 
+                flag={country.flag} 
+                daysLeft={56} 
+                hoursLeft={6} 
+                minutesLeft={15} 
+                secondsLeft={60} 
+            />
+        ))
+    }
+</section>
+

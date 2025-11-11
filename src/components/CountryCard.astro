@@ -1,0 +1,21 @@
+---
+interface Props {
+    name: string;
+    flag: string;
+    daysLeft: number;
+    hoursLeft: number;
+    minutesLeft: number;
+    secondsLeft: number;
+}
+const { name, flag, daysLeft, hoursLeft, minutesLeft, secondsLeft } = Astro.props;
+---
+
+<article class="flex items-center justify-between border border-gold rounded-lg p-4 gap-4 hover:border-gold-alt hover:scale-105 transition-all duration-300 cursor-default">
+    <div class="flex items-center gap-4">
+        <img src={flag} alt={`Bandera de ${name}`}/>
+        <h2 class="uppercase font-bold">{name}</h2>
+    </div>
+    <p class="text-sm text-gray-500">
+        {daysLeft}d {hoursLeft}h {minutesLeft}m {secondsLeft}s
+    </p>
+</article>
