@@ -46,15 +46,42 @@ const counterId = `country-${name.toLowerCase().replace(/\s+/g, '-')}`;
         
         cards.forEach((card) => {
             const timezone = card.getAttribute('data-timezone') as string;
-            const year = new Date().getFullYear();
             
             // Función para actualizar el contador de este país
             function updateCounter() {
-                // Obtener la fecha/hora actual en la zona horaria del país
-                const nowInTimezone = new Date(new Date().toLocaleString('es-ES', { timeZone: timezone }));
-                const targetDate = new Date(nowInTimezone.getFullYear() + 1, 0, 1, 0, 0, 0);
+                const now = new Date();
                 
-                const diff = targetDate.getTime() - nowInTimezone.getTime();
+                // Obtener partes de la fecha actual en la zona horaria del país
+                const formatter = new Intl.DateTimeFormat('en-US', {
+                    timeZone: timezone,
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: false
+                });
+                
+                const parts = formatter.formatToParts(now);
+                const tzYear = parseInt(parts.find(p => p.type === 'year')!.value);
+                const tzMonth = parseInt(parts.find(p => p.type === 'month')!.value);
+                const tzDay = parseInt(parts.find(p => p.type === 'day')!.value);
+                const tzHour = parseInt(parts.find(p => p.type === 'hour')!.value);
+                const tzMinute = parseInt(parts.find(p => p.type === 'minute')!.value);
+                const tzSecond = parseInt(parts.find(p => p.type === 'second')!.value);
+                
+                // Crear fecha local del país
+                const nowInTz = new Date(tzYear, tzMonth - 1, tzDay, tzHour, tzMinute, tzSecond);
+                
+                // Crear fecha objetivo: 1 de enero del próximo año en esa zona horaria
+                const targetInTz = new Date(tzYear + 1, 0, 1, 0, 0, 0);
+                
+                // Calcular diferencia temporal
+                const offset = now.getTime() - nowInTz.getTime();
+                const targetInUTC = targetInTz.getTime() + offset;
+                
+                const diff = targetInUTC - now.getTime();
                 
                 if (diff <= 0) {
                     // Ya es año nuevo en este país
