@@ -1,6 +1,7 @@
 ---
 import Countdown from "@/components/Countdown.astro"
 import ThemeToggle from "@/components/ThemeToggle.astro"
+import SubscribeForm from "@/components/SubscribeForm.astro"
 ---
 
 <section class="">
@@ -18,14 +19,7 @@ import ThemeToggle from "@/components/ThemeToggle.astro"
     </div>
 
 
-    <form action="" class="flex order-1 md:order-2 flex-col md:flex-row gap-2">
-      <input type="email" placeholder="Felicitar el año nuevo" class="px-4 py-2 rounded-md bg-bg border border-gold text-text focus:outline-none focus:ring-2 focus:ring-gold transition-all duration-300" required/>
-      <input type="submit" value="Felicitar" class=" px-4 py-2 rounded-md bg-gold text-bg font-bold hover:bg-gold-alt cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95" />
-    </form>
-
-
-    
-    
+    <SubscribeForm />
   </div>
 </section>
 
