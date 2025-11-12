@@ -6,7 +6,7 @@ const countriesData = countries.countries;
 
 ---
 
-<section class="grid grid-cols-1 md:grid-cols-2 max-w-[80%] md:max-w-[60%] mx-auto mt-16 gap-4 mb-16">
+<section class="opacity-0 grid grid-cols-1 md:grid-cols-2 max-w-[80%] md:max-w-[60%] mx-auto mt-16 gap-4 mb-16">
     {
     countriesData.map(country => (
             <CountryCard 
@@ -18,3 +18,9 @@ const countriesData = countries.countries;
     }
 </section>
 
+<style>
+    section {
+        animation: fade-in-up 0.5s ease forwards;
+        animation-delay: 0.4s;
+    }
+</style>

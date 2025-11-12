@@ -2,7 +2,7 @@
 import Heart from "@assets/heart.svg";
 ---
 
-<footer class="flex flex-col justify-center items-center gap-2 px-4 py-6">
+<footer class=" opacity-0 flex flex-col justify-center items-center gap-2 px-4 py-6">
     <p>
         &copy; {new Date().getFullYear()} Feliz Año Nuevo.
     </p>
@@ -12,3 +12,10 @@ import Heart from "@assets/heart.svg";
         <p>por <span class="italic group-hover:text-gold group-hover:underline transition-all duration-200">@tonigt.dev</span></p>
     </a>
 </footer>
+
+<style>
+    footer {
+        animation: fade-in-up 0.5s ease forwards;
+        animation-delay: 0.6s;
+    }
+</style>

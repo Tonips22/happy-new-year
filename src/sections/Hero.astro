@@ -7,7 +7,7 @@ import SubscribeForm from "@/components/SubscribeForm.astro"
 <section class="">
   <Countdown />
 
-  <div class="flex flex-col md:flex-row mx-auto items-center gap-4 justify-center mt-16">
+  <div class="opacity-0 toggle-form flex flex-col md:flex-row mx-auto items-center gap-4 justify-center mt-16">
 
     
     <div class="flex order-2 md:order-1 items-center gap-4">
@@ -22,3 +22,10 @@ import SubscribeForm from "@/components/SubscribeForm.astro"
     <SubscribeForm />
   </div>
 </section>
+
+<style>
+  .toggle-form {
+    animation: fade-in-down 0.5s ease forwards;
+    animation-delay: 0.2s;
+  }
+</style>
