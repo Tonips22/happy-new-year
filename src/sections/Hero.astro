@@ -22,24 +22,3 @@ import SubscribeForm from "@/components/SubscribeForm.astro"
     <SubscribeForm />
   </div>
 </section>
-
-<script>
-  import { throwConfetti } from "@utils/canvas";
-  const form = document.querySelector('form') as HTMLFormElement;
-  const submitButton = form.querySelector('input[type="submit"]') as HTMLInputElement;
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Solo ejecuta si el formulario es válido
-    if (form.checkValidity()) {
-      throwConfetti();
-      submitButton.value = "¡Activado!";
-      submitButton.disabled = true;
-      submitButton.style.opacity = "0.5";
-      submitButton.style.cursor = "not-allowed";
-      form.reset();
-    }
-  });
-
-</script>
