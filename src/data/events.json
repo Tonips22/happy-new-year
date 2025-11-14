@@ -1,0 +1,78 @@
+{
+    "events": [
+        {
+            "title": "Día de la Constitución",
+            "image": "/events/constitution.webp",
+            "date": {
+                "year": "2025",
+                "month": "12",
+                "day": "06",
+                "time": "00:00"
+            },
+            "location": "Madrid, España",
+            "description": "Celebramos el aniversario de la Constitución Española de 1978, un día para reflexionar sobre los valores democráticos y los derechos fundamentales que nos unen como sociedad."
+        },
+        {
+            "title": "Día de la Inmaculada Concepción",
+            "image": "/events/inmaculada.webp",
+            "date": {
+                "year": "2025",
+                "month": "12",
+                "day": "08",
+                "time": "00:00"
+            },
+            "location": "Madrid, España",
+            "description": "Celebramos la Inmaculada Concepción, una festividad religiosa que honra a la Virgen María y su pureza sin pecado original."
+        },
+        {
+            "title": "Lotería de Navidad",
+            "image": "/events/loteria-navidad.webp",
+            "date": {
+                "year": "2025",
+                "month": "12",
+                "day": "22",
+                "time": "09:00"
+            },
+            "location": "Madrid, España",
+            "description": "Celebramos la Navidad, una festividad que conmemora el nacimiento de Jesucristo y se celebra con tradiciones como el intercambio de regalos, la decoración del árbol de Navidad y reuniones familiares."
+        },
+        {
+            "title": "Navidad",
+            "image": "/events/navidad.webp",
+            "date": {
+                "year": "2025",
+                "month": "12",
+                "day": "25",
+                "time": "00:00"
+            },
+            "location": "Madrid, España",
+            "description": "Celebramos la Navidad, una festividad que conmemora el nacimiento de Jesucristo y se celebra con tradiciones como el intercambio de regalos, la decoración del árbol de Navidad y reuniones familiares."
+        }
+    ],
+    "events2026": [
+        {
+            "title": "Grand Theft Auto VI",
+            "image": "/events/gta6.webp",
+            "date": {
+                "year": "2026",
+                "month": "11",
+                "day": "19",
+                "time": "00:00"
+            },
+            "location": null,
+            "description": "La próxima entrega de la serie Grand Theft Auto, desarrollada por Rockstar Games. Ambientada en una versión ficticia de Vice City, promete una experiencia de mundo abierto aún más inmersiva y detallada."
+        },
+        {
+            "title": "Año Nuevo",
+            "image": "/events/ano-nuevo.webp",
+            "date": {
+                "year": "2026",
+                "month": "01",
+                "day": "01",
+                "time": "00:00"
+            },
+            "location": "Madrid, España",
+            "description": "Celebramos el inicio del nuevo año con fuegos artificiales, fiestas y tradiciones como comer 12 uvas a la medianoche para atraer la buena suerte."
+        }
+    ]
+}
