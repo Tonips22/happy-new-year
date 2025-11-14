@@ -30,7 +30,7 @@ const eventId = `event-${title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z
   data-timezone={timezone}
 >
     {image && (
-          <img src={image} alt={title} class="event-accordion-image absolute top-0 -z-10 left-0 w-full h-full max-h-[300px] object-cover rounded-lg" />
+          <img src={image} alt={title} class="event-accordion-image absolute top-0 -z-10 left-0 w-full h-full object-cover" />
     )}
   <!-- Header clickeable -->
   <button class="accordion-header w-full bg-transparent border-none p-6 cursor-pointer flex items-center justify-between gap-4">
