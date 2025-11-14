@@ -32,11 +32,11 @@ const counterId = `country-${name.toLowerCase().replace(/\s+/g, '-')}`;
         <img src={flag} alt={`Bandera de ${name}`} class="w-8 h-6 object-cover rounded"/>
         <h2 class="uppercase font-bold text-sm md:text-base">{name}</h2>
     </div>
-    <p class="text-sm text-text60 font-mono">
-        <span class="text-gold-alt" data-days>{dias.toString().padStart(2, '0')}</span>d
-        <span class="text-gold-alt" data-hours>{horas.toString().padStart(2, '0')}</span>h
-        <span class="text-gold-alt" data-minutes>{minutos.toString().padStart(2, '0')}</span>m
-        <span class="text-gold-alt" data-seconds>{segundos.toString().padStart(2, '0')}</span>s
+    <p class="text-sm text-text60">
+        <span class="text-gold-alt font-bold" data-days>{dias.toString().padStart(2, '0')}</span>d
+        <span class="text-gold-alt font-bold" data-hours>{horas.toString().padStart(2, '0')}</span>h
+        <span class="text-gold-alt font-bold" data-minutes>{minutos.toString().padStart(2, '0')}</span>m
+        <span class="text-gold-alt font-bold" data-seconds>{segundos.toString().padStart(2, '0')}</span>s
     </p>
 </article>
 
