@@ -1,0 +1,32 @@
+---
+import EventAccordion from "@components/EventAccordion.astro"
+import events from "@/data/events.json";
+const eventsData = events.events;
+// Ordenar eventos por fecha ascendente
+eventsData.sort((a, b) => {
+    const dateA = new Date(`${a.date.year}-${a.date.month}-${a.date.day}T${a.date.time}:00`);
+    const dateB = new Date(`${b.date.year}-${b.date.month}-${b.date.day}T${b.date.time}:00`);
+    return dateA.getTime() - dateB.getTime();
+});
+---
+
+<section class="opacity-0 flex flex-col max-w-[80%] md:max-w-[60%] mx-auto mt-16 gap-4 mb-16">
+    <h2 class="text-center font-primary uppercase text-text text-4xl">Próximos eventos</h2>
+    <div class="gap-4 grid grid-cols-1">
+        {eventsData.map(event => (
+            <EventAccordion 
+                title={event.title} 
+                description={event.description} 
+                targetDate={`${event.date.year}-${event.date.month}-${event.date.day}T${event.date.time}:00`}
+                image={event.image ?? ""}
+            />
+        ))}
+    </div>
+</section>
+
+<style>
+    section {
+        animation: fade-in-up 0.5s ease forwards;
+        animation-delay: 0.4s;
+    }
+</style>

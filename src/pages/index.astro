@@ -1,13 +1,14 @@
 ---
 import Layout from '@layouts/Layout.astro';
-const nextYear: number = new Date().getFullYear() + 1;
 import Hero from '@sections/Hero.astro';
 import CountriesSection from '@sections/CountriesSection.astro';
+import EventsSection from '@sections/EventsSection.astro';
 import Footer from '@components/Footer.astro';
 ---
 
 <Layout title={`¿Cuánto falta para Año Nuevo? | Feliz Año Nuevo`} description="¿Cuánto falta para el Año Nuevo? Descubre cuántos días, horas, minutos y segundos quedan para celebrar el Año Nuevo.">
     <Hero />
+    <EventsSection/>
     <CountriesSection />
     <Footer />
 </Layout>
