@@ -39,7 +39,17 @@
     "name": "Ecuador",
     "timezone": "America/Guayaquil",
     "flag": "/icons/flags/ecuador.svg"
-  }, 
+  },
+  {
+    "name": "EE.UU. (NYC)",
+    "timezone": "America/New_York",
+    "flag": "/icons/flags/us.svg"
+  },
+  {
+    "name": "Rusia (Moscú)",
+    "timezone": "Europe/Moscow",
+    "flag": "/icons/flags/russia.svg"
+  },
   {
     "name": "China",
     "timezone": "Asia/Shanghai",
