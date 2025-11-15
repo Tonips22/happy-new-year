@@ -8,20 +8,34 @@ eventsData.sort((a, b) => {
     const dateB = new Date(`${b.date.year}-${b.date.month}-${b.date.day}T${b.date.time}:00`);
     return dateA.getTime() - dateB.getTime();
 });
+
+const initialEventsCount = 4;
+const hasMoreEvents = eventsData.length > initialEventsCount;
 ---
 
 <section class="opacity-0 flex flex-col max-w-[80%] md:max-w-[60%] mx-auto my-32 gap-4">
     <h2 class="text-center font-primary uppercase text-text text-4xl">Próximos eventos</h2>
-    <div class="gap-4 grid grid-cols-1">
-        {eventsData.map(event => (
-            <EventAccordion 
-                title={event.title} 
-                description={event.description} 
-                targetDate={`${event.date.year}-${event.date.month}-${event.date.day}T${event.date.time}:00`}
-                image={event.image ?? ""}
-            />
+    <div class="gap-4 grid grid-cols-1" id="events-container">
+        {eventsData.map((event, index) => (
+            <div class={`event-item ${index >= initialEventsCount ? 'hidden' : ''}`}>
+                <EventAccordion 
+                    title={event.title} 
+                    description={event.description} 
+                    targetDate={`${event.date.year}-${event.date.month}-${event.date.day}T${event.date.time}:00`}
+                    image={event.image ?? ""}
+                />
+            </div>
         ))}
     </div>
+    
+    {hasMoreEvents && (
+        <button 
+            id="show-more-btn"
+            class="mt-4 uppercase px-6 py-3 bg-gold text-bg font-bold rounded-lg hover:bg-gold-alt transition-all duration-300 hover:scale-105 active:scale-95 self-center cursor-pointer"
+        >
+            Mostrar todos
+        </button>
+    )}
 </section>
 
 <style>
@@ -29,4 +43,24 @@ eventsData.sort((a, b) => {
         animation: fade-in-up 0.5s ease forwards;
         animation-delay: 0.4s;
     }
+
+    .event-item {
+        animation: fade-in-up 0.3s ease forwards;
+    }
 </style>
+
+<script>
+    const showMoreBtn = document.getElementById('show-more-btn');
+    const hiddenEvents = document.querySelectorAll('.event-item.hidden');
+
+    if (showMoreBtn) {
+        showMoreBtn.addEventListener('click', () => {
+            hiddenEvents.forEach((event, index) => {
+                setTimeout(() => {
+                    event.classList.remove('hidden');
+                }, index * 100); // Animación escalonada
+            });
+            showMoreBtn.style.display = 'none';
+        });
+    }
+</script>
