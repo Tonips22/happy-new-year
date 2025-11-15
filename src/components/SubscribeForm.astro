@@ -4,8 +4,8 @@ import { actions } from "astro:actions"
 
 
 <form action={actions.subscribe} method="POST" id="subscribe-form" class="flex order-1 md:order-2 flex-col md:flex-row gap-2">
-    <input type="email" placeholder="Felicitar el año nuevo" class="px-4 py-2 rounded-md bg-bg border border-gold text-text focus:outline-none focus:ring-2 focus:ring-gold transition-all duration-300" name="email" required/>
-    <input type="submit" value="Felicitar" class=" px-4 py-2 rounded-md bg-gold text-bg font-bold hover:bg-gold-alt cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95" />
+    <input type="email" placeholder="happy@example.com" class="px-4 py-2 rounded-md bg-bg border border-gold text-text focus:outline-none focus:ring-2 focus:ring-gold transition-all duration-300 placeholder:italic placeholder:text-sm" name="email" required/>
+    <input type="submit" value="Felicitar año" class=" px-4 py-2 rounded-md bg-gold text-bg font-bold hover:bg-gold-alt cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 uppercase" />
 </form>
 
 <script>
