@@ -51,6 +51,54 @@
     ],
     "events2026": [
         {
+            "title": "San Valentín",
+            "image": "/events/san-valentin.webp",
+            "date": {
+                "year": "2026",
+                "month": "02",
+                "day": "14",
+                "time": "00:00"
+            },
+            "location": null,
+            "description": "San Valentín es una celebración del amor y la amistad que se celebra el 14 de febrero en muchos países alrededor del mundo. Es común intercambiar regalos, flores y tarjetas entre parejas y amigos."
+        },
+        {
+            "title": "Finalización de La Sagrada Familia",
+            "image": "/events/sagrada-familia.webp",
+            "date": {
+                "year": "2026",
+                "month": "06",
+                "day": "10",
+                "time": "18:00"
+            },
+            "location": null,
+            "description": "La finalización de La Sagrada Familia, una obra maestra arquitectónica diseñada por Antoni Gaudí en Barcelona, España. Esta icónica basílica ha estado en construcción durante más de un siglo y se espera que su finalización sea un evento histórico y cultural significativo."
+        },
+        {
+            "title": "Mundial de Fútbol 2026",
+            "image": "/events/mundial-2026.webp",
+            "date": {
+                "year": "2026",
+                "month": "06",
+                "day": "11",
+                "time": "00:00"
+            },
+            "location": null,
+            "description": "El Mundial de Fútbol 2026 será la 23ª edición de la Copa Mundial de la FIFA. Por primera vez, el torneo será organizado conjuntamente por tres países: Estados Unidos, Canadá y México. Se espera que sea el torneo más grande hasta la fecha, con 48 equipos compitiendo por el título."
+        },
+        {
+            "title": "Avengers: Doomsday",
+            "image": "/events/avengers-doomsday.webp",
+            "date": {
+                "year": "2026",
+                "month": "12",
+                "day": "18",
+                "time": "00:00"
+            },
+            "location": null,
+            "description": "La próxima entrega de la saga de los Vengadores en el Universo Cinematográfico de Marvel (MCU). Esta película promete reunir a varios héroes icónicos para enfrentar una amenaza global que pondrá a prueba sus habilidades y su unidad."
+        },
+        {
             "title": "Grand Theft Auto VI",
             "image": "/events/gta6.webp",
             "date": {
@@ -63,16 +111,28 @@
             "description": "La próxima entrega de la serie Grand Theft Auto, desarrollada por Rockstar Games. Ambientada en una versión ficticia de Vice City, promete una experiencia de mundo abierto aún más inmersiva y detallada."
         },
         {
-            "title": "Año Nuevo",
-            "image": "/events/ano-nuevo.webp",
+            "title": "Lotería de Navidad",
+            "image": "/events/loteria-navidad.webp",
             "date": {
                 "year": "2026",
-                "month": "01",
-                "day": "01",
+                "month": "12",
+                "day": "22",
+                "time": "09:00"
+            },
+            "location": "Madrid, España",
+            "description": "Celebramos la Navidad, una festividad que conmemora el nacimiento de Jesucristo y se celebra con tradiciones como el intercambio de regalos, la decoración del árbol de Navidad y reuniones familiares."
+        },
+        {
+            "title": "Navidad",
+            "image": "/events/navidad.webp",
+            "date": {
+                "year": "2026",
+                "month": "12",
+                "day": "25",
                 "time": "00:00"
             },
             "location": "Madrid, España",
-            "description": "Celebramos el inicio del nuevo año con fuegos artificiales, fiestas y tradiciones como comer 12 uvas a la medianoche para atraer la buena suerte."
+            "description": "Celebramos la Navidad, una festividad que conmemora el nacimiento de Jesucristo y se celebra con tradiciones como el intercambio de regalos, la decoración del árbol de Navidad y reuniones familiares."
         }
     ]
 }
