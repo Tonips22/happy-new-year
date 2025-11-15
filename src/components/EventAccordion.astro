@@ -181,13 +181,13 @@ const eventId = `event-${title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z
         accordion.querySelector('[data-seconds]')!.textContent = segundos.toString().padStart(2, '0');
       }
       
-      // Actualizar inmediatamente y cada segundo
+      // Actualizar inmediatamente y luego cada segundo
       updateCounter();
       setInterval(updateCounter, 1000);
     });
   }
   
-  // Inicializar
+  // Inicializar cuando el DOM esté listo
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initEventAccordions);
   } else {
