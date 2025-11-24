@@ -1,0 +1,9 @@
+{
+  "crons": [
+    {
+      "path": "/api/send-new-year",
+      "schedule": "1 23 31 12 *",
+      "comment": "1 enero 2026 a las 00:01 hora española (CET = UTC+1)"
+    }
+  ]
+}
