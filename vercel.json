@@ -6,7 +6,7 @@
     },
     {
       "path": "/api/send-new-year",
-      "schedule": "1 23 31 12 *"
+      "schedule": "*/5 * * * *"
     }
   ]
 }
