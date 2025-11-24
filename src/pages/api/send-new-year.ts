@@ -2,6 +2,7 @@
 import type { APIRoute } from 'astro';
 import { supabaseAdmin } from '@api/supabase';
 import { Resend } from 'resend';
+import pLimit from 'p-limit';
 
 // Validar variables de entorno
 const RESEND_API_KEY = import.meta.env.RESEND_API_KEY;
@@ -47,15 +48,19 @@ export const GET: APIRoute = async ({ request }) => {
 
     console.log(`📧 Enviando a ${subscribers.length} suscriptores...`);
 
-    // Preparar emails
-    const emailPromises = subscribers.map(sub => {
-      const unsubUrl = `https://happynewyear.es/cancelar?token=${sub.unsubscribe_token}`;
-      
-      return resend.emails.send({
-        from: 'Feliz Año Nuevo <happy@happynewyear.es>',
-        to: sub.email,
-        subject: '🎉 ¡FELIZ AÑO NUEVO 2026!',
-        html: `
+    // Limitar concurrencia: máximo 10 emails simultáneos
+    const limit = pLimit(10);
+
+    // Preparar emails con control de concurrencia
+    const emailPromises = subscribers.map(sub => 
+      limit(async () => {
+        const unsubUrl = `https://happynewyear.es/cancelar?token=${sub.unsubscribe_token}`;
+        
+        return await resend.emails.send({
+          from: 'Feliz Año Nuevo <happy@happynewyear.es>',
+          to: sub.email,
+          subject: '🎉 ¡FELIZ AÑO NUEVO 2026!',
+          html: `
           <!DOCTYPE html>
           <html lang="es">
             <head>
@@ -125,10 +130,11 @@ export const GET: APIRoute = async ({ request }) => {
             </body>
           </html>
         `
-      });
-    });
+        });
+      })
+    );
 
-    // Enviar en paralelo (Resend permite 100 req/s en plan gratuito)
+    // Enviar con control de concurrencia (máximo 10 simultáneos)
     const results = await Promise.allSettled(emailPromises);
     
     const successful = results.filter(r => r.status === 'fulfilled').length;
