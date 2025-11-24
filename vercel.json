@@ -1,7 +1,7 @@
 {
   "crons": [
     {
-        "path": "/api/merry-christmas",
+        "path": "/api/send-merry-christmas",
         "schedule": "0 20 25 12 *"
     },
     {
