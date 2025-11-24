@@ -3,12 +3,10 @@
     {
         "path": "/api/merry-christmas",
         "schedule": "0 20 25 12 *",
-        "comment": "25 diciembre a las 21:00 hora española (CET = UTC+1)"
     },
     {
       "path": "/api/send-new-year",
       "schedule": "1 23 31 12 *",
-      "comment": "1 enero 2026 a las 00:01 hora española (CET = UTC+1)"
     }
   ]
 }
