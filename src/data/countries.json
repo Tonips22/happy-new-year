@@ -41,12 +41,12 @@
     "flag": "/icons/flags/ecuador.svg"
   },
   {
-    "name": "EE.UU. (NYC)",
+    "name": "EE.UU.",
     "timezone": "America/New_York",
     "flag": "/icons/flags/us.svg"
   },
   {
-    "name": "Rusia (Moscú)",
+    "name": "Rusia",
     "timezone": "Europe/Moscow",
     "flag": "/icons/flags/russia.svg"
   },
