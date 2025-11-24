@@ -12,6 +12,10 @@
     /*Fonts*/
     --font-primary: var(--primary-font);
     --font-secondary: var(--secondary-font);
+
+    /*Spacing - min-height*/
+    --min-height-screen: 100vh;
+    --min-height-dvh: 100dvh;
 }
 
 /* Estilos base personalizados - se aplican después de Tailwind */
