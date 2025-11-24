@@ -1,0 +1,37 @@
+---
+import Layout from "@layouts/Layout.astro"
+import Footer from "@components/Footer.astro"
+---
+
+
+<Layout
+    title="Uuups! Página no encontrada"
+    description="La página que buscas no existe. Regresa al inicio y descubre cuánto falta para el Año Nuevo.">
+
+    <main class="min-h-screen flex flex-col items-center justify-evenly p-6 text-center">
+        <section class="flex flex-col gap-4 self-center justify-self-center">
+            <h1 class="text-3xl md:text-5xl text-gold ">Uuups! Página no encontrada</h1>
+            <h2 class="text-lg md:text-2xl mt-4">
+                La página que buscas no existe.
+            </h2>
+            <p class="text-sm md:text-base opacity-80">
+                Regresa al inicio y descubre cuánto falta para el Año Nuevo.
+            </p>
+
+            <a href="/" class=" px-4 py-2 mx-auto rounded-md bg-gold mt-4 text-bg font-bold hover:bg-gold-alt cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 uppercase">
+                Volver al inicio
+            </a>
+        </section>
+
+        <Footer></Footer>
+    </main>
+</Layout>
+
+<!-- <style>
+    main {
+        min-height: 100vh;
+    }
+</style> -->
+
+
+
