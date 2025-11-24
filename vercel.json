@@ -2,11 +2,11 @@
   "crons": [
     {
         "path": "/api/merry-christmas",
-        "schedule": "0 20 25 12 *",
+        "schedule": "0 20 25 12 *"
     },
     {
       "path": "/api/send-new-year",
-      "schedule": "1 23 31 12 *",
+      "schedule": "1 23 31 12 *"
     }
   ]
 }
