@@ -99,24 +99,36 @@
 <script>
   import { toggleTheme, getSavedTheme } from '@/utils/theme';
 
-  const button = document.getElementById('theme-toggle') as HTMLButtonElement;
+  function setupThemeToggle() {
+    const button = document.getElementById('theme-toggle') as HTMLButtonElement;
 
-  if (button) {
-    button.addEventListener('click', () => {
-      const newTheme = toggleTheme();
-      
-      // Actualizar el aria-label para accesibilidad
-      button.setAttribute(
+    if (button) {
+      // Remover listeners anteriores para evitar duplicados
+      const newButton = button.cloneNode(true) as HTMLButtonElement;
+      button.parentNode?.replaceChild(newButton, button);
+
+      newButton.addEventListener('click', () => {
+        const newTheme = toggleTheme();
+        
+        // Actualizar el aria-label para accesibilidad
+        newButton.setAttribute(
+          'aria-label',
+          newTheme === 'light' ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro'
+        );
+      });
+
+      // Configurar el aria-label inicial
+      const currentTheme = getSavedTheme();
+      newButton.setAttribute(
         'aria-label',
-        newTheme === 'light' ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro'
+        currentTheme === 'light' ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro'
       );
-    });
-
-    // Configurar el aria-label inicial
-    const currentTheme = getSavedTheme();
-    button.setAttribute(
-      'aria-label',
-      currentTheme === 'light' ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro'
-    );
+    }
   }
+
+  // Ejecutar al cargar la página
+  setupThemeToggle();
+
+  // Re-ejecutar después de cada navegación con View Transitions
+  document.addEventListener('astro:page-load', setupThemeToggle);
 </script>

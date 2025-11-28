@@ -1,6 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import Footer from '@components/Footer.astro';
+import ThemeToggle from '@/components/ThemeToggle.astro';
 ---
 
 <Layout
@@ -8,6 +9,11 @@ import Footer from '@components/Footer.astro';
     description="Política de privacidad y protección de datos de happynewyear.es">
 
     <main class="min-h-screen max-w-4xl mx-auto px-6 py-12">
+        <div class="flex justify-between items-start mb-8">
+            <a href="/" class="text-gold hover:text-gold-alt underline">← Volver al inicio</a>
+            <ThemeToggle />
+        </div>
+
         <article class="prose prose-invert">
             <h1 class="text-4xl font-bold mb-8 text-gold">Política de Privacidad</h1>
             
@@ -75,10 +81,6 @@ import Footer from '@components/Footer.astro';
                 <p class="mt-4"><strong>Email:</strong> <a href="mailto:happynewyear.es@gmail.com" class="text-gold hover:text-gold-alt underline">happynewyear.es@gmail.com</a></p>
             </section>
         </article>
-
-        <div class="mt-12">
-            <a href="/" class="text-gold hover:text-gold-alt underline">← Volver al inicio</a>
-        </div>
     </main>
 
     <Footer />
