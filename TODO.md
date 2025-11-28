@@ -1,0 +1,4 @@
+- Solucionar imagen EventAccordion component ✅
+- Añadir botón de ver más en EventsSection component ✅
+- Añadir icono y estilos cuando el contador llegue a 0 en EventAccordion component
+- Animación teclear Feliz Año 2026 cuando acabe countdonw

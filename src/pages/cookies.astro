@@ -26,10 +26,10 @@ import ThemeToggle from '@/components/ThemeToggle.astro';
 
             <section class="mb-8">
                 <h2 class="text-2xl font-bold mb-4 text-gold-alt">¿Qué cookies utilizamos?</h2>
-                <p class="mb-4">En happynewyear.es utilizamos un enfoque minimalista respecto a las cookies. Solo utilizamos tecnologías de almacenamiento local estrictamente necesarias:</p>
+                <p class="mb-4">En happynewyear.es utilizamos un enfoque minimalista respecto a las cookies:</p>
                 
                 <div class="bg-gold25 p-6 rounded-lg my-6">
-                    <h3 class="text-xl font-bold mb-3 text-gold">localStorage - Preferencia de tema</h3>
+                    <h3 class="text-xl font-bold mb-3 text-gold">1. localStorage - Preferencia de tema</h3>
                     <ul class="list-none space-y-2">
                         <li><strong>Nombre:</strong> theme-preference</li>
                         <li><strong>Propósito:</strong> Guardar tu preferencia de tema (claro/oscuro)</li>
@@ -38,12 +38,24 @@ import ThemeToggle from '@/components/ThemeToggle.astro';
                     </ul>
                 </div>
 
+                <div class="bg-gold25 p-6 rounded-lg my-6">
+                    <h3 class="text-xl font-bold mb-3 text-gold">2. Vercel Analytics</h3>
+                    <ul class="list-none space-y-2">
+                        <li><strong>Propósito:</strong> Recopilar métricas anónimas de rendimiento y uso</li>
+                        <li><strong>Datos recopilados:</strong> Páginas vistas, rendimiento del sitio, país (sin IP completa)</li>
+                        <li><strong>Tipo:</strong> Analytics respetuoso con la privacidad</li>
+                        <li><strong>Cumplimiento:</strong> Compatible con RGPD, no requiere consentimiento previo</li>
+                        <li><strong>Tercero:</strong> Vercel Inc.</li>
+                    </ul>
+                    <p class="mt-4 text-sm">Vercel Analytics NO utiliza cookies tradicionales ni rastrea usuarios entre sitios. Los datos son completamente anónimos y agregados. <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener noreferrer" class="text-gold hover:text-gold-alt underline">Más información</a></p>
+                </div>
+
                 <p class="mt-4 font-bold text-gold">No utilizamos:</p>
                 <ul class="list-disc pl-6 space-y-2 mt-2">
                     <li>Cookies de publicidad</li>
-                    <li>Cookies de seguimiento o analytics</li>
+                    <li>Cookies de seguimiento invasivo (ej: Google Analytics, Facebook Pixel)</li>
                     <li>Cookies de redes sociales</li>
-                    <li>Cookies de terceros</li>
+                    <li>Cookies de terceros para marketing</li>
                 </ul>
             </section>
 
