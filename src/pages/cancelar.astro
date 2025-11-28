@@ -1,6 +1,6 @@
 ---
 // src/pages/cancelar.astro
-import Layout from '../layouts/Layout.astro';
+import Layout from '@layouts/Layout.astro';
 import { supabaseAdmin } from '@api/supabase';
 
 const token = Astro.url.searchParams.get('token');
@@ -32,7 +32,9 @@ if (Astro.request.method === 'POST' && token) {
       
       {!token ? (
         <div>
-          <h1 class="text-3xl font-bold mb-4">❌ Token inválido</h1>
+          <h1 class="text-3xl font-bold mb-4 flex items-center justify-center gap-2">
+            Token inválido
+          </h1>
           <p class="mb-6 opacity-80">
             El enlace de cancelación no es válido o ha expirado.
           </p>
@@ -45,7 +47,10 @@ if (Astro.request.method === 'POST' && token) {
         </div>
       ) : success ? (
         <div>
-          <h1 class="text-3xl font-bold mb-4">✅ Cancelado</h1>
+          <h1 class="text-3xl font-bold mb-4 flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-icon lucide-check size-12 text-gold"><path d="M20 6 9 17l-5-5"/></svg>
+            Cancelado
+            </h1>
           <p class="mb-6 opacity-80">
             Tu email ha sido eliminado de nuestra lista.<br>
             ¡Esperamos verte el próximo año! 😊
