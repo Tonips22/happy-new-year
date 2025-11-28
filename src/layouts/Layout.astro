@@ -5,6 +5,7 @@ interface Props {
 }
 import "@styles/global.css";
 import { ClientRouter } from "astro:transitions";
+import Analytics from '@vercel/analytics/astro'
 
 const { title, description } = Astro.props;
 
@@ -44,6 +45,7 @@ const { title, description } = Astro.props;
 	</head>
 	<body>
 		<slot />
+		<Analytics />
 	</body>
 </html>
 
