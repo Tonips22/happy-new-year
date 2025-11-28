@@ -1,0 +1,104 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Footer from '@components/Footer.astro';
+---
+
+<Layout
+    title="Política de Cookies | Feliz Año Nuevo"
+    description="Política de cookies de happynewyear.es">
+
+    <main class="min-h-screen max-w-4xl mx-auto px-6 py-12">
+        <article class="prose prose-invert">
+            <h1 class="text-4xl font-bold mb-8 text-gold">Política de Cookies</h1>
+            
+            <p class="text-text60 mb-8">Última actualización: 28 de noviembre de 2025</p>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-gold-alt">¿Qué son las cookies?</h2>
+                <p>Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo (ordenador, tablet o móvil) cuando visitas un sitio web. Permiten que el sitio recuerde tus acciones y preferencias durante un período de tiempo.</p>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-gold-alt">¿Qué cookies utilizamos?</h2>
+                <p class="mb-4">En happynewyear.es utilizamos un enfoque minimalista respecto a las cookies. Solo utilizamos tecnologías de almacenamiento local estrictamente necesarias:</p>
+                
+                <div class="bg-gold25 p-6 rounded-lg my-6">
+                    <h3 class="text-xl font-bold mb-3 text-gold">localStorage - Preferencia de tema</h3>
+                    <ul class="list-none space-y-2">
+                        <li><strong>Nombre:</strong> theme-preference</li>
+                        <li><strong>Propósito:</strong> Guardar tu preferencia de tema (claro/oscuro)</li>
+                        <li><strong>Duración:</strong> Permanente (hasta que la borres manualmente)</li>
+                        <li><strong>Tipo:</strong> Técnica y estrictamente necesaria</li>
+                    </ul>
+                </div>
+
+                <p class="mt-4 font-bold text-gold">No utilizamos:</p>
+                <ul class="list-disc pl-6 space-y-2 mt-2">
+                    <li>Cookies de publicidad</li>
+                    <li>Cookies de seguimiento o analytics</li>
+                    <li>Cookies de redes sociales</li>
+                    <li>Cookies de terceros</li>
+                </ul>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-gold-alt">¿Por qué no necesitas aceptar cookies?</h2>
+                <p>Dado que solo utilizamos almacenamiento local técnico y estrictamente necesario para el funcionamiento del sitio (preferencia de tema), no necesitas aceptar ningún banner de cookies según la legislación europea (RGPD).</p>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-gold-alt">Cómo gestionar el almacenamiento local</h2>
+                <p class="mb-4">Si deseas borrar el almacenamiento local de tu navegador:</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="font-bold text-gold mb-2">Chrome / Edge:</h3>
+                        <p class="text-sm">Configuración → Privacidad y seguridad → Borrar datos de navegación → Cookies y otros datos de sitios</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-bold text-gold mb-2">Firefox:</h3>
+                        <p class="text-sm">Configuración → Privacidad y seguridad → Cookies y datos del sitio → Limpiar datos</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-bold text-gold mb-2">Safari:</h3>
+                        <p class="text-sm">Preferencias → Privacidad → Gestionar datos de sitios web → Eliminar todo</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-gold-alt">Cambios en esta política</h2>
+                <p>Si en el futuro decidimos utilizar cookies adicionales, actualizaremos esta política y te informaremos adecuadamente.</p>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-gold-alt">Contacto</h2>
+                <p>Si tienes alguna pregunta sobre nuestra política de cookies, puedes contactarnos en:</p>
+                <p class="mt-4"><strong>Email:</strong> <a href="mailto:happynewyear.es@gmail.com" class="text-gold hover:text-gold-alt underline">happynewyear.es@gmail.com</a></p>
+            </section>
+        </article>
+
+        <div class="mt-12">
+            <a href="/" class="text-gold hover:text-gold-alt underline">← Volver al inicio</a>
+        </div>
+    </main>
+
+    <Footer />
+</Layout>
+
+<style>
+    article {
+        color: var(--text);
+    }
+    
+    h1, h2, h3 {
+        font-family: var(--primary-font);
+    }
+    
+    p, li {
+        font-family: var(--secondary-font);
+        line-height: 1.8;
+    }
+</style>

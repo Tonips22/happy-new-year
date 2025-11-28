@@ -2,10 +2,19 @@
 import Heart from "@assets/icons/heart.svg";
 ---
 
-<footer class=" opacity-0 flex flex-col justify-center items-center gap-2 px-4 py-6">
-    <p>
+<footer class="opacity-0 flex flex-col justify-center items-center gap-4 px-4 py-6">
+    <p class="text-center">
         &copy; {new Date().getFullYear()} Feliz Año Nuevo.
     </p>
+
+    <div class="flex flex-wrap justify-center gap-4 text-sm text-text60">
+        <a href="/privacidad" class="hover:text-gold transition-colors">Privacidad</a>
+        <span>•</span>
+        <a href="/terminos" class="hover:text-gold transition-colors">Términos</a>
+        <span>•</span>
+        <a href="/cookies" class="hover:text-gold transition-colors">Cookies</a>
+    </div>
+    
     <a href="https://tonigt.dev/" target="_blank" class="text-sm flex items-center gap-1 text-text60 group">
         <p>Hecho con</p>
         <Heart class="inline w-4 h-4 fill-gold stroke-0 group-hover:fill-gold-alt transition-colors" />
