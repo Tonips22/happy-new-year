@@ -1,38 +1,9 @@
 ---
-// Calculamos la fecha objetivo: 31 diciembre 2025 a las 23:59:59 CET
-const year = new Date().getFullYear();
-const targetDate = new Date(`${year}-12-31T23:59:59+01:00`); // +01:00 = CET
-const now = new Date();
-const diff = targetDate.getTime() - now.getTime();
-
-// Calculamos valores iniciales para SSR (SEO friendly)
-const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-const segundos = Math.floor((diff % (1000 * 60)) / 1000);
+// No necesitamos calcular valores iniciales, SimplyCountdown se encarga de todo
 ---
 
-<section class="countdown-container">
-  <div class="number-box">
-    <span class="number" id="dias">{dias.toString().padStart(2, '0')}</span>
-    <span class="label">Días</span>
-  </div>
-  
-  <div class="number-box">
-    <span class="number" id="horas">{horas.toString().padStart(2, '0')}</span>
-    <span class="label">Horas</span>
-  </div>
-  
-  <div class="number-box">
-    <span class="number" id="minutos">{minutos.toString().padStart(2, '0')}</span>
-    <span class="label">Minutos</span>
-  </div>
-  
-  <div class="number-box">
-    <span class="number" id="segundos">{segundos.toString().padStart(2, '0')}</span>
-    <span class="label">Segundos</span>
-  </div>
-</section>
+<!-- Contenedor para SimplyCountdown (vacío, la librería lo llenará) -->
+<section id="countdown-target" class="countdown-container"></section>
 
 <div class="mensaje-final" id="mensaje-final" style="display: none;">
   <h2>🎉 ¡Feliz Año Nuevo 2026! 🎊</h2>
@@ -56,45 +27,56 @@ const segundos = Math.floor((diff % (1000 * 60)) / 1000);
     animation: fade-in-down 0.5s ease forwards;
   }
 
-
-  .number-box {
+  /* Estilos personalizados para SimplyCountdown */
+  .countdown-container :global(.simply-section) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: rem;
+    justify-content: center;
+    gap: 0.5rem;
+    min-width: 120px;
     transition: transform 0.3s ease;
     cursor: default;
+
+    @media (width >= 768px) {
+        min-width: 150px;
+    }
   }
 
-  .number {
+  .countdown-container :global(.simply-section:hover) {
+    transform: scale(1.05);
+  }
+
+  .countdown-container :global(.simply-amount) {
     font-family: var(--primary-font);
     font-size: 4rem;
     font-weight: 700;
     color: var(--gold);
     line-height: 1;
     transition: color 0.3s ease;
+    display: block;
+    min-width: 3ch;
+    text-align: center;
 
     @media (width >= 768px) {
         font-size: 5rem;
     }
   }
 
-
-  .number-box:hover {
-    transform: scale(1.05);
-  }
-
-  .number-box:hover .number {
+  .countdown-container :global(.simply-section:hover .simply-amount) {
     color: var(--gold-alt);
   }
 
-  .label {
+  .countdown-container :global(.simply-word) {
     font-family: var(--secondary-font);
     font-size: 1rem;
     color: var(--text);
     opacity: 0.8;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    display: block;
+    text-align: center;
+    white-space: nowrap;
   }
 
   .mensaje-final {
@@ -115,51 +97,96 @@ const segundos = Math.floor((diff % (1000 * 60)) / 1000);
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .number {
+    .countdown-container :global(.simply-amount) {
       transition: none;
     }
     .mensaje-final h2 {
       animation: none;
     }
-    .number-box:hover .number {
+    .countdown-container :global(.simply-section:hover) {
       transform: none;
     }
   }
 </style>
 
 <script>
-  function actualizarContador() {
-    // Fecha objetivo en zona horaria española
-    const targetDate = new Date('2025-12-31T23:59:59+01:00');
-    const now = new Date();
-    const diff = targetDate.getTime() - now.getTime();
+  import simplyCountdown from 'simplycountdown.js';
 
-    // Si llegamos a 0 o pasamos la fecha
-    if (diff <= 0) {
-      document.getElementById('mensaje-final')!.style.display = 'block';
-      document.querySelector('.countdown-container')!.remove();
-      return;
-    }
+  function initCountdown() {
+    const countdownElement = document.getElementById('countdown-target');
+    
+    if (!countdownElement) return;
 
-    // Cálculos
-    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const segundos = Math.floor((diff % (1000 * 60)) / 1000);
+    // Limpiar cualquier contenido previo (evita duplicados en navegaciones)
+    countdownElement.innerHTML = '';
 
-    // Actualizar DOM
-    document.getElementById('dias')!.textContent = dias.toString().padStart(2, '0');
-    document.getElementById('horas')!.textContent = horas.toString().padStart(2, '0');
-    document.getElementById('minutos')!.textContent = minutos.toString().padStart(2, '0');
-    document.getElementById('segundos')!.textContent = segundos.toString().padStart(2, '0');
+    // Obtener la fecha objetivo
+    const year = new Date().getFullYear();
+    const targetDate = new Date(`${year}-12-31T23:59:59+01:00`);
+
+    // Inicializar SimplyCountdown
+    simplyCountdown('#countdown-target', {
+      year: targetDate.getFullYear(),
+      month: targetDate.getMonth() + 1, // JavaScript months son 0-11, SimplyCountdown espera 1-12
+      day: targetDate.getDate(),
+      hours: 23,
+      minutes: 59,
+      seconds: 59,
+
+      // Palabras en español con pluralización correcta
+      words: {
+        days: {
+          lambda: (root: string, count: number) => count === 1 ? 'Día' : 'Días',
+          root: 'Día'
+        },
+        hours: {
+          lambda: (root: string, count: number) => count === 1 ? 'Hora' : 'Horas',
+          root: 'Hora'
+        },
+        minutes: {
+          lambda: (root: string, count: number) => count === 1 ? 'Minuto' : 'Minutos',
+          root: 'Minuto'
+        },
+        seconds: {
+          lambda: (root: string, count: number) => count === 1 ? 'Segundo' : 'Segundos',
+          root: 'Segundo'
+        }
+      },
+
+      // Configuración
+      plural: true,
+      inline: false,
+      enableUtc: false, // Usamos hora local (CET/CEST)
+      zeroPad: true, // Mostrar 01 en lugar de 1
+      countUp: false,
+      removeZeroUnits: false,
+      refresh: 1000, // Actualizar cada segundo
+
+      // Clases personalizadas (usar las por defecto)
+      sectionClass: 'simply-section',
+      amountClass: 'simply-amount',
+      wordClass: 'simply-word',
+
+      // Callback cuando termina el contador
+      onEnd: () => {
+        const mensajeFinal = document.getElementById('mensaje-final');
+        const countdownContainer = document.getElementById('countdown-target');
+        
+        if (mensajeFinal && countdownContainer) {
+          mensajeFinal.style.display = 'block';
+          countdownContainer.remove();
+        }
+      }
+    });
   }
 
-  // Actualizar inmediatamente y luego cada segundo
-  actualizarContador();
-  const interval = setInterval(actualizarContador, 1000);
+  // Inicializar solo una vez al cargar
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCountdown);
+  } else {
+    initCountdown();
+  }
 
-  // Limpieza cuando se cierra la página
-  window.addEventListener('beforeunload', () => {
-    clearInterval(interval);
-  });
+  // Reinicializar después de navegaciones con View Transitions
+  document.addEventListener('astro:page-load', initCountdown);
 </script>
