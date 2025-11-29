@@ -6,7 +6,7 @@
 <section id="countdown-target" class="countdown-container"></section>
 
 <div class="mensaje-final" id="mensaje-final" style="display: none;">
-  <h2>🎉 ¡Feliz Año Nuevo 2026! 🎊</h2>
+  <h2></h2>
 </div>
 
 <style>
@@ -86,14 +86,9 @@
 
   .mensaje-final h2 {
     font-family: var(--primary-font);
-    font-size: 2.5rem;
+    font-weight: bold;
+    font-size: 4rem;
     color: var(--gold);
-    animation: celebrar 1s ease-in-out infinite alternate;
-  }
-
-  @keyframes celebrar {
-    from { transform: scale(1); }
-    to { transform: scale(1.05); }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -111,6 +106,7 @@
 
 <script>
   import simplyCountdown from 'simplycountdown.js';
+  import Typed from 'typed.js';
 
   function initCountdown() {
     const countdownElement = document.getElementById('countdown-target');
@@ -123,7 +119,10 @@
     // Obtener la fecha objetivo: 1 de enero del año siguiente a las 00:00:00
     const currentYear = new Date().getFullYear();
     const nextYear = currentYear + 1;
+    // Año siguiente, 1 de enero, 00:00:00 CET (UTC+1)
     const targetDate = new Date(`${nextYear}-01-01T00:00:00+01:00`);
+    // Este año, 29 de Noviembre a las 20:10, (UTC+1)
+    // const targetDate = new Date(`${currentYear}-11-29T20:10:00+01:00`);
 
     // Inicializar SimplyCountdown
     simplyCountdown('#countdown-target', {
@@ -174,8 +173,17 @@
         const countdownContainer = document.getElementById('countdown-target');
         
         if (mensajeFinal && countdownContainer) {
+          // Mostrar el contenedor del mensaje
           mensajeFinal.style.display = 'block';
           countdownContainer.remove();
+
+          // Inicializar Typed.js DESPUÉS de mostrar el elemento
+          new Typed('#mensaje-final h2', {
+            strings: ['¡Feliz Año Nuevo 2026!'],
+            loop: false,
+            typeSpeed: 200,
+            showCursor: false,
+          });
         }
       }
     });
