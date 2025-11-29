@@ -48,6 +48,9 @@ const counterId = `country-${name.toLowerCase().replace(/[.\s]+/g, '-')}`;
         display: flex;
         gap: 0.25rem;
         font-size: 0.875rem;
+        min-width: 140px;
+        text-align: right;
+        justify-content: flex-end;
     }
 
     .country-countdown :global(.simply-section) {
@@ -58,6 +61,9 @@ const counterId = `country-${name.toLowerCase().replace(/[.\s]+/g, '-')}`;
         font-weight: 700 !important;
         color: var(--gold-alt) !important;
         font-size: 0.875rem !important;
+        display: inline-block !important;
+        min-width: 1.25em !important;
+        text-align: right !important;
     }
 
     .country-countdown :global(.simply-word) {
