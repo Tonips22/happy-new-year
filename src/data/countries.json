@@ -3,62 +3,74 @@
   {
     "name": "Reino Unido",
     "timezone": "Europe/London",
-    "flag": "/icons/flags/uk.svg"
+    "flag": "/icons/flags/uk.svg",
+    "utcOffset": 0
   },
   {
     "name": "México",
     "timezone": "America/Mexico_City",
-    "flag": "/icons/flags/mexico.svg"
+    "flag": "/icons/flags/mexico.svg",
+    "utcOffset": -6
   },
   {
     "name": "Argentina",
     "timezone": "America/Argentina/Buenos_Aires",
-    "flag": "/icons/flags/argentina.svg"
+    "flag": "/icons/flags/argentina.svg",
+    "utcOffset": -3
   },
   {
     "name": "Colombia",
     "timezone": "America/Bogota",
-    "flag": "/icons/flags/colombia.svg"
+    "flag": "/icons/flags/colombia.svg",
+    "utcOffset": -5
   },
   {
     "name": "Chile",
     "timezone": "America/Santiago",
-    "flag": "/icons/flags/chile.svg"
+    "flag": "/icons/flags/chile.svg",
+    "utcOffset": -3
   },
   {
     "name": "Perú",
     "timezone": "America/Lima",
-    "flag": "/icons/flags/peru.svg"
+    "flag": "/icons/flags/peru.svg",
+    "utcOffset": -5
   },
   {
     "name": "Venezuela",
     "timezone": "America/Caracas",
-    "flag": "/icons/flags/venezuela.svg"
+    "flag": "/icons/flags/venezuela.svg",
+    "utcOffset": -4
   },
   {
     "name": "Ecuador",
     "timezone": "America/Guayaquil",
-    "flag": "/icons/flags/ecuador.svg"
+    "flag": "/icons/flags/ecuador.svg",
+    "utcOffset": -5
   },
   {
     "name": "EE.UU.",
     "timezone": "America/New_York",
-    "flag": "/icons/flags/us.svg"
+    "flag": "/icons/flags/us.svg",
+    "utcOffset": -5
   },
   {
     "name": "Rusia",
     "timezone": "Europe/Moscow",
-    "flag": "/icons/flags/russia.svg"
+    "flag": "/icons/flags/russia.svg",
+    "utcOffset": 3
   },
   {
     "name": "China",
     "timezone": "Asia/Shanghai",
-    "flag": "/icons/flags/china.svg"
+    "flag": "/icons/flags/china.svg",
+    "utcOffset": 8
   },
   {
     "name": "Japón",
     "timezone": "Asia/Tokyo",
-    "flag": "/icons/flags/japan.svg"
+    "flag": "/icons/flags/japan.svg",
+    "utcOffset": 9
   }
 ]
 }

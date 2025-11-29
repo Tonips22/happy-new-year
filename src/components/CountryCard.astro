@@ -3,110 +3,158 @@ interface Props {
     name: string;
     flag: string;
     timezone: string; // Ej: 'Europe/Madrid', 'America/New_York', 'Asia/Tokyo'
+    utcOffset: number; // Offset en horas respecto a UTC (ej: +1, -5, +9)
 }
-const { name, flag, timezone } = Astro.props;
+const { name, flag, timezone, utcOffset } = Astro.props;
 
-// Calcular fecha objetivo: 31 de diciembre 2025 a las 23:59:59 en la zona horaria del país
-const year = new Date().getFullYear();
-// Crear fecha en UTC y luego ajustarla según la zona horaria
-const targetDate = new Date(`${year + 1}-01-01T00:00:00`);
-
-// Calcular valores iniciales para SSR
-const now = new Date();
-const diff = targetDate.getTime() - now.getTime();
-const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-const segundos = Math.floor((diff % (1000 * 60)) / 1000);
-
-// Generar ID único para este contador
-const counterId = `country-${name.toLowerCase().replace(/\s+/g, '-')}`;
+// Generar ID único para este contador (eliminar caracteres especiales)
+const counterId = `country-${name.toLowerCase().replace(/[.\s]+/g, '-')}`;
 ---
 
 <article 
-    class="flex items-center justify-between border border-gold rounded-lg p-4 gap-4 hover:border-gold-alt hover:scale-105 transition-all duration-300 cursor-default"
+    class="country-card flex items-center justify-between border border-gold rounded-lg p-4 gap-4 hover:border-gold-alt hover:scale-105 transition-all duration-300 cursor-default"
     data-timezone={timezone}
     data-country-id={counterId}
+    data-utc-offset={utcOffset}
 >
     <div class="flex items-center gap-4">
         <img src={flag} alt={`Bandera de ${name}`} class="w-8 h-6 object-cover rounded"/>
         <h2 class="uppercase font-bold text-sm md:text-base">{name}</h2>
     </div>
-    <p class="text-sm text-text60">
-        <span class="text-gold-alt font-bold" data-days>{dias.toString().padStart(2, '0')}</span>d
-        <span class="text-gold-alt font-bold" data-hours>{horas.toString().padStart(2, '0')}</span>h
-        <span class="text-gold-alt font-bold" data-minutes>{minutos.toString().padStart(2, '0')}</span>m
-        <span class="text-gold-alt font-bold" data-seconds>{segundos.toString().padStart(2, '0')}</span>s
-    </p>
+    
+    <!-- Contenedor del contador (SimplyCountdown lo llenará) -->
+    <div class="country-countdown" id={counterId}></div>
+    
+    <!-- Icono de check (oculto por defecto, se muestra cuando termina el countdown) -->
+    <svg 
+        class="country-check hidden" 
+        xmlns="http://www.w3.org/2000/svg" 
+        width="24" 
+        height="24" 
+        viewBox="0 0 24 24" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-width="2" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+    >
+        <path d="M21.801 10A10 10 0 1 1 17 3.335"/>
+        <path d="m9 11 3 3L22 4"/>
+    </svg>
 </article>
 
+<style>
+    .country-countdown {
+        display: flex;
+        gap: 0.25rem;
+        font-size: 0.875rem;
+    }
+
+    .country-countdown :global(.simply-section) {
+        display: inline;
+    }
+
+    .country-countdown :global(.simply-amount) {
+        font-weight: 700 !important;
+        color: var(--gold-alt) !important;
+        font-size: 0.875rem !important;
+    }
+
+    .country-countdown :global(.simply-word) {
+        font-weight: 400 !important;
+        color: var(--text60) !important;
+        font-size: 0.875rem !important;
+        margin-right: 0.125rem !important;
+    }
+
+    .country-check {
+        color: var(--gold-alt);
+        flex-shrink: 0;
+    }
+</style>
+
 <script>
+    import simplyCountdown from 'simplycountdown.js';
+
     function initCountryCounters() {
         const cards = document.querySelectorAll('[data-country-id]');
         
         cards.forEach((card) => {
-            const timezone = card.getAttribute('data-timezone') as string;
+            const countryId = card.getAttribute('data-country-id') as string;
+            const utcOffset = parseFloat(card.getAttribute('data-utc-offset') || '0');
+            const countdownElement = card.querySelector(`#${countryId}`) as HTMLElement;
+            const checkIcon = card.querySelector('.country-check') as HTMLElement;
             
-            // Función para actualizar el contador de este país
-            function updateCounter() {
-                const now = new Date();
-                
-                // Obtener partes de la fecha actual en la zona horaria del país
-                const formatter = new Intl.DateTimeFormat('en-US', {
-                    timeZone: timezone,
-                    year: 'numeric',
-                    month: '2-digit',
-                    day: '2-digit',
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    second: '2-digit',
-                    hour12: false
-                });
-                
-                const parts = formatter.formatToParts(now);
-                const tzYear = parseInt(parts.find(p => p.type === 'year')!.value);
-                const tzMonth = parseInt(parts.find(p => p.type === 'month')!.value);
-                const tzDay = parseInt(parts.find(p => p.type === 'day')!.value);
-                const tzHour = parseInt(parts.find(p => p.type === 'hour')!.value);
-                const tzMinute = parseInt(parts.find(p => p.type === 'minute')!.value);
-                const tzSecond = parseInt(parts.find(p => p.type === 'second')!.value);
-                
-                // Crear fecha local del país
-                const nowInTz = new Date(tzYear, tzMonth - 1, tzDay, tzHour, tzMinute, tzSecond);
-                
-                // Crear fecha objetivo: 1 de enero del próximo año en esa zona horaria
-                const targetInTz = new Date(tzYear + 1, 0, 1, 0, 0, 0);
-                
-                // Calcular diferencia temporal
-                const offset = now.getTime() - nowInTz.getTime();
-                const targetInUTC = targetInTz.getTime() + offset;
-                
-                const diff = targetInUTC - now.getTime();
-                
-                if (diff <= 0) {
-                    // Ya es año nuevo en este país
-                    card.querySelector('[data-days]')!.textContent = '00';
-                    card.querySelector('[data-hours]')!.textContent = '00';
-                    card.querySelector('[data-minutes]')!.textContent = '00';
-                    card.querySelector('[data-seconds]')!.textContent = '00';
-                    return;
+            if (!countdownElement) return;
+
+            // Limpiar contenido previo
+            countdownElement.innerHTML = '';
+
+            // Calcular fecha objetivo: 1 de enero 2026 a las 00:00:00 en la zona horaria del país
+            const currentYear = new Date().getFullYear();
+            const nextYear = currentYear + 1;
+            
+            // Calcular cuándo es medianoche del 1 de enero en ese país, en hora local del navegador
+            // Por ejemplo, si el offset es -5, medianoche allí es 5 horas después que UTC
+            // Si el offset es +9, medianoche allí es 9 horas antes que UTC
+            const targetDateUTC = Date.UTC(nextYear, 0, 1, 0, 0, 0);
+            // 29 Noviembre 2025 a las 21:30 en la zona horaria del país
+            // const targetDateUTC = Date.UTC(currentYear, 10, 29, 20, 30, 0);
+            // Restar el offset para obtener el momento en hora local del navegador
+            const targetTimestamp = targetDateUTC - (utcOffset * 60 * 60 * 1000);
+            const targetDate = new Date(targetTimestamp);
+
+            // Inicializar SimplyCountdown con la fecha en hora local
+            simplyCountdown(`#${countryId}`, {
+                year: targetDate.getFullYear(),
+                month: targetDate.getMonth() + 1,
+                day: targetDate.getDate(),
+                hours: targetDate.getHours(),
+                minutes: targetDate.getMinutes(),
+                seconds: targetDate.getSeconds(),
+
+                // Palabras cortas para el formato compacto
+                words: {
+                    days: {
+                        lambda: () => 'd',
+                        root: 'd'
+                    },
+                    hours: {
+                        lambda: () => 'h',
+                        root: 'h'
+                    },
+                    minutes: {
+                        lambda: () => 'm',
+                        root: 'm'
+                    },
+                    seconds: {
+                        lambda: () => 's',
+                        root: 's'
+                    }
+                },
+
+                // Configuración
+                plural: false,
+                inline: false,
+                enableUtc: false,
+                zeroPad: true,
+                countUp: false,
+                removeZeroUnits: false,
+                refresh: 1000,
+
+                // Clases
+                sectionClass: 'simply-section',
+                amountClass: 'simply-amount',
+                wordClass: 'simply-word',
+
+                // Callback cuando termina
+                onEnd: () => {
+                    if (countdownElement && checkIcon) {
+                        countdownElement.style.display = 'none';
+                        checkIcon.classList.remove('hidden');
+                    }
                 }
-                
-                const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const segundos = Math.floor((diff % (1000 * 60)) / 1000);
-                
-                // Actualizar DOM
-                card.querySelector('[data-days]')!.textContent = dias.toString().padStart(2, '0');
-                card.querySelector('[data-hours]')!.textContent = horas.toString().padStart(2, '0');
-                card.querySelector('[data-minutes]')!.textContent = minutos.toString().padStart(2, '0');
-                card.querySelector('[data-seconds]')!.textContent = segundos.toString().padStart(2, '0');
-            }
-            
-            // Actualizar inmediatamente y luego cada segundo
-            updateCounter();
-            setInterval(updateCounter, 1000);
+            });
         });
     }
     
@@ -116,4 +164,7 @@ const counterId = `country-${name.toLowerCase().replace(/\s+/g, '-')}`;
     } else {
         initCountryCounters();
     }
+
+    // Reinicializar después de navegaciones con View Transitions
+    document.addEventListener('astro:page-load', initCountryCounters);
 </script>
