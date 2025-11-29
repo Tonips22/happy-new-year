@@ -82,6 +82,10 @@
   .mensaje-final {
     text-align: center;
     padding: 3rem 1rem;
+
+    @media (width <= 768px) {
+      min-height: 65vh;
+    }
   }
 
   .mensaje-final h2 {
@@ -120,17 +124,17 @@
     const currentYear = new Date().getFullYear();
     const nextYear = currentYear + 1;
     // Año siguiente, 1 de enero, 00:00:00 CET (UTC+1)
-    const targetDate = new Date(`${nextYear}-01-01T00:00:00+01:00`);
+    // const targetDate = new Date(`${nextYear}-01-01T00:00:00+01:00`);
     // Este año, 29 de Noviembre a las 20:10, (UTC+1)
-    // const targetDate = new Date(`${currentYear}-11-29T20:10:00+01:00`);
+    const targetDate = new Date(`${currentYear}-11-29T20:10:00+01:00`);
 
     // Inicializar SimplyCountdown
     simplyCountdown('#countdown-target', {
       year: targetDate.getFullYear(),
       month: targetDate.getMonth() + 1, // JavaScript months son 0-11, SimplyCountdown espera 1-12
       day: targetDate.getDate(),
-      hours: 0,
-      minutes: 0,
+      hours: 20,
+      minutes: 48,
       seconds: 0,
 
       // Palabras en español con pluralización correcta
