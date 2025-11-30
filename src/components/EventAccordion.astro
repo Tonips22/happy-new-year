@@ -39,12 +39,8 @@ const eventId = `event-${title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z
         <h3 class="font-primary text-lg md:text-xl font-bold text-text text-left">{title}</h3>
 
         <div class="flex items-center">
-            <span class=" text-sm text-text60">
-            <span class="text-gold-alt font-bold" data-days>{dias.toString().padStart(2, '0')}</span>d
-            <span class="text-gold-alt font-bold" data-hours>{horas.toString().padStart(2, '0')}</span>h
-            <span class="text-gold-alt font-bold" data-minutes>{minutos.toString().padStart(2, '0')}</span>m
-            <span class="text-gold-alt font-bold" data-seconds>{segundos.toString().padStart(2, '0')}</span>s
-            </span>
+            <!-- Contenedor para SimplyCountdown -->
+            <div class="event-countdown" id={eventId}></div>
         </div>
     </div>
     
@@ -122,6 +118,43 @@ const eventId = `event-${title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z
     filter: sepia(0.5) saturate(1.3) brightness(1);
   }
 
+  /* Estilos para SimplyCountdown */
+  .event-countdown {
+    display: inline-flex;
+    gap: 0;
+    font-size: 0.875rem;
+  }
+
+  .event-countdown :global(.simply-section) {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0;
+  }
+
+  .event-countdown :global(.simply-amount) {
+    font-weight: 700 !important;
+    color: var(--gold-alt) !important;
+    font-size: 0.875rem !important;
+  }
+
+  .event-countdown :global(.simply-word) {
+    font-weight: 400 !important;
+    color: var(--text60) !important;
+    font-size: 0.875rem !important;
+    margin-right: 0.125rem !important;
+  }
+
+  /* Oscurecer evento expirado */
+  .event-accordion.expired {
+    opacity: 0.5;
+    filter: grayscale(0.7);
+    pointer-events: none;
+  }
+
+  .event-accordion.expired .accordion-header {
+    cursor: not-allowed;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .event-accordion,
     .accordion-header,
@@ -133,64 +166,124 @@ const eventId = `event-${title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z
 </style>
 
 <script>
+  import simplyCountdown from 'simplycountdown.js';
+
   function initEventAccordions() {
     const accordions = document.querySelectorAll('[data-event-id]');
     
     accordions.forEach((accordion) => {
+      const eventId = accordion.getAttribute('data-event-id') as string;
       const targetDate = accordion.getAttribute('data-target-date') as string;
-      const header = accordion.querySelector('.accordion-header') as HTMLButtonElement;
+      const countdownElement = accordion.querySelector(`#${eventId}`) as HTMLElement;
       
-      // Manejar click para abrir/cerrar
-      header.addEventListener('click', () => {
-        const isActive = accordion.classList.contains('active');
-        
-        // Cerrar todos los demás
-        document.querySelectorAll('[data-event-id].active').forEach((other) => {
-          if (other !== accordion) {
-            other.classList.remove('active');
+      if (!countdownElement) return;
+
+      // Verificar si ya está inicializado el countdown
+      if (accordion.hasAttribute('data-countdown-initialized')) {
+        return;
+      }
+      accordion.setAttribute('data-countdown-initialized', 'true');
+
+      // Limpiar contenido previo
+      countdownElement.innerHTML = '';
+
+      // Parsear fecha objetivo
+      const target = new Date(targetDate);
+
+      // Inicializar SimplyCountdown
+      simplyCountdown(`#${eventId}`, {
+        year: target.getFullYear(),
+        month: target.getMonth() + 1,
+        day: target.getDate(),
+        hours: target.getHours(),
+        minutes: target.getMinutes(),
+        seconds: target.getSeconds(),
+
+        // Palabras cortas
+        words: {
+          days: {
+            lambda: () => 'd',
+            root: 'd'
+          },
+          hours: {
+            lambda: () => 'h',
+            root: 'h'
+          },
+          minutes: {
+            lambda: () => 'm',
+            root: 'm'
+          },
+          seconds: {
+            lambda: () => 's',
+            root: 's'
           }
-        });
-        
-        // Toggle el actual
-        accordion.classList.toggle('active', !isActive);
+        },
+
+        // Configuración
+        plural: false,
+        inline: false,
+        enableUtc: false,
+        zeroPad: true,
+        countUp: false,
+        removeZeroUnits: false,
+        refresh: 1000,
+
+        // Clases
+        sectionClass: 'simply-section',
+        amountClass: 'simply-amount',
+        wordClass: 'simply-word',
+
+        // Callback cuando termina
+        onEnd: () => {
+          // Oscurecer la card cuando expira
+          accordion.classList.add('expired');
+        }
+      });
+    });
+  }
+
+  function setupAccordionListeners() {
+    // Usar delegación de eventos en el documento
+    document.addEventListener('click', (e) => {
+      const header = (e.target as HTMLElement).closest('.accordion-header');
+      if (!header) return;
+
+      const accordion = header.closest('[data-event-id]');
+      if (!accordion) return;
+
+      e.preventDefault();
+      
+      const isActive = accordion.classList.contains('active');
+      
+      // Cerrar todos los demás
+      document.querySelectorAll('[data-event-id].active').forEach((other) => {
+        if (other !== accordion) {
+          other.classList.remove('active');
+        }
       });
       
-      // Actualizar el contador
-      function updateCounter() {
-        const now = new Date();
-        const target = new Date(targetDate);
-        const diff = target.getTime() - now.getTime();
-        
-        if (diff <= 0) {
-          // El evento ya pasó
-          accordion.querySelector('[data-days]')!.textContent = '00';
-          accordion.querySelector('[data-hours]')!.textContent = '00';
-          accordion.querySelector('[data-minutes]')!.textContent = '00';
-          accordion.querySelector('[data-seconds]')!.textContent = '00';
-          return;
-        }
-        
-        const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const segundos = Math.floor((diff % (1000 * 60)) / 1000);
-        
-        accordion.querySelector('[data-days]')!.textContent = dias.toString().padStart(2, '0');
-        accordion.querySelector('[data-hours]')!.textContent = horas.toString().padStart(2, '0');
-        accordion.querySelector('[data-minutes]')!.textContent = minutos.toString().padStart(2, '0');
-        accordion.querySelector('[data-seconds]')!.textContent = segundos.toString().padStart(2, '0');
-      }
-      
-      // Actualizar inmediatamente y luego cada segundo
-      updateCounter();
-      setInterval(updateCounter, 1000);
+      // Toggle el actual
+      accordion.classList.toggle('active', !isActive);
     });
   }
   
   // Inicializar cuando el DOM esté listo
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initEventAccordions);
+    document.addEventListener('DOMContentLoaded', () => {
+      initEventAccordions();
+      setupAccordionListeners();
+    });
   } else {
     initEventAccordions();
+    setupAccordionListeners();
   }
+
+  // Reinicializar después de navegaciones con View Transitions
+  document.addEventListener('astro:page-load', () => {
+    // Limpiar atributos de inicialización para permitir reinicialización
+    document.querySelectorAll('[data-event-id][data-countdown-initialized]').forEach(el => {
+      el.removeAttribute('data-countdown-initialized');
+    });
+    initEventAccordions();
+  });
 </script>
