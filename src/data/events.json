@@ -47,6 +47,18 @@
             },
             "location": "Madrid, España",
             "description": "Celebramos la Navidad, una festividad que conmemora el nacimiento de Jesucristo y se celebra con tradiciones como el intercambio de regalos, la decoración del árbol de Navidad y reuniones familiares."
+        },
+        {
+            "title": "Sorteo Mundial de Fútbol 2026",
+            "image": "/events/sorteo-futbol.webp",
+            "date": {
+                "year": "2025",
+                "month": "12",
+                "day": "05",
+                "time": "18:00"
+            },
+            "location": "Centro Kennedy de Washington D.C., Estados Unidos",
+            "description": "El sorteo del Mundial de Fútbol 2026, donde se determinarán los grupos y enfrentamientos para la próxima Copa Mundial de la FIFA, que será organizada conjuntamente por Estados Unidos, Canadá y México."
         }
     ],
     "events2026": [
@@ -133,6 +145,54 @@
             },
             "location": "Madrid, España",
             "description": "Celebramos la Navidad, una festividad que conmemora el nacimiento de Jesucristo y se celebra con tradiciones como el intercambio de regalos, la decoración del árbol de Navidad y reuniones familiares."
+        },
+        {
+            "title": "San Fermines",
+            "image": "/events/san-fermines.webp",
+            "date": {
+                "year": "2026",
+                "month": "07",
+                "day": "07",
+                "time": "07:00"
+            },
+            "location": "Pamplona, España",
+            "description": "Los San Fermines son una festividad tradicional que se celebra en Pamplona, España, del 7 al 14 de julio. Es famosa por sus encierros, donde los participantes corren delante de toros por las calles de la ciudad, así como por sus eventos culturales, música y bailes."
+        },
+        {
+            "title": "Feria de Abril",
+            "image": "/events/feria.webp",
+            "date": {
+                "year": "2026",
+                "month": "04",
+                "day": "20",
+                "time": "00:00"
+            },
+            "location": "Sevilla, España",
+            "description": "La Feria de Abril es una festividad tradicional que se celebra en Sevilla, España, generalmente dos semanas después de la Semana Santa. Durante esta feria, la ciudad se llena de casetas decoradas, música flamenca, bailes, trajes típicos y una gran variedad de comida y bebida típica andaluza."
+        },
+        {
+            "title": "San Juan",
+            "image": "/events/san-juan.webp",
+            "date": {
+                "year": "2026",
+                "month": "06",
+                "day": "24",
+                "time": "00:00"
+            },
+            "location": "España",
+            "description": "La festividad de San Juan se celebra en España la noche del 23 al 24 de junio, marcando el solsticio de verano. Es una noche llena de tradiciones, donde se encienden hogueras, se lanzan fuegos artificiales y se realizan rituales para atraer la buena suerte y alejar los malos espíritus."
+        },
+        {
+            "title": "Carnavales",
+            "image": "/events/carnavales.webp",
+            "date": {
+                "year": "2026",
+                "month": "01",
+                "day": "16",
+                "time": "00:00"
+            },
+            "location": "Tenerife y Cádiz, España",
+            "description": "Los carnavales de Tenerife y Cádiz son una de las celebraciones más importantes y coloridas de España. Se caracterizan por desfiles, disfraces elaborados, música, bailes y una gran participación popular que llena las calles de alegría y diversión."
         }
     ]
 }
