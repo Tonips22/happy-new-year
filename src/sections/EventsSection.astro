@@ -1,7 +1,7 @@
 ---
 import EventAccordion from "@components/EventAccordion.astro"
 import events from "@/data/events.json";
-const eventsData = events.events;
+const eventsData = events.events2026;
 // Ordenar eventos por fecha ascendente
 eventsData.sort((a, b) => {
     const dateA = new Date(`${a.date.year}-${a.date.month}-${a.date.day}T${a.date.time}:00`);
