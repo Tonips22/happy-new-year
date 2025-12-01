@@ -15,10 +15,33 @@ const { title, description } = Astro.props;
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/png" href="/favicon.png" />
 		<meta name="description" content={description} />
+		<meta name="keywords" content="año nuevo, 2026, countdown, celebración, eventos, año nuevo mundial, zonas horarias" />
+		<meta name="author" content="tonigt.dev" />
 		<title>{title}</title>
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://www.happynewyear.es/" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="https://www.happynewyear.es/og-image.webp" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="https://www.happynewyear.es/" />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content="https://www.happynewyear.es/og-image.png" />
+
+		<!-- Canonical URL -->
+		<link rel="canonical" href="https://www.happynewyear.es/" />
+
+		<!-- Theme Color -->
+		<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+		<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
 
 		<!-- Script inline para evitar flash de tema incorrecto (FOUC) -->
 		<script is:inline>
