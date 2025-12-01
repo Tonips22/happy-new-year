@@ -37,7 +37,7 @@ const hasMoreEvents = eventsData.length > initialEventsCount;
         </button>
     )}
     
-    <p id="github-issue-text" class={`text-center text-sm text-text60 ${hasMoreEvents ? 'hidden' : ''}`}>
+    <p id="github-issue-text" class={`text-center text-sm text-text60 opacity-0 ${hasMoreEvents ? 'hidden' : ''}`}>
         ¿Echas de menos algún evento? crea un issue 
         <a href="https://github.com/Tonips22/happy-new-year/issues" target="_blank" rel="noopener noreferrer" class="underline text-gold hover:text-gold-alt">aquí</a>.
     </p>
@@ -50,6 +50,10 @@ const hasMoreEvents = eventsData.length > initialEventsCount;
     }
 
     .event-item {
+        animation: fade-in-up 0.3s ease forwards;
+    }
+
+    #github-issue-text:not(.hidden) {
         animation: fade-in-up 0.3s ease forwards;
     }
 </style>
@@ -68,9 +72,11 @@ const hasMoreEvents = eventsData.length > initialEventsCount;
             });
             showMoreBtn.style.display = 'none';
             
-            // Mostrar el texto del issue después de ocultar el botón
+            // Mostrar el texto del issue después de todos los eventos con animación
             if (githubText) {
-                githubText.classList.remove('hidden');
+                setTimeout(() => {
+                    githubText.classList.remove('hidden');
+                }, hiddenEvents.length * 100);
             }
         });
     }
