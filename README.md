@@ -78,6 +78,8 @@ CREATE TABLE subscribers (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   email TEXT UNIQUE NOT NULL,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+  unsubscribe_token UUID NULL DEFAULT gen_random_uuid (),
+  newsletter_sent boolean NULL DEFAULT false,
 );
 ```
 
@@ -119,9 +121,11 @@ La aplicación estará disponible en `http://localhost:4321`
 │   │   └── global.css
 │   └── utils/           # Utilidades TypeScript
 │       └── theme.ts
-├── supabase/
-│   └── functions/       # Edge Functions
-│       └── sendNewYearEmails/
+├── functions/          # Supabase Edge Functions
+│   └── sendNewsletter.ts
+├── .env                 # Variables de entorno
+├── package.json         # Dependencias y scripts
+├── tailwind.config.cjs  # Configuración de Tailwind CSS
 └── astro.config.mjs     # Configuración de Astro
 ```
 
@@ -207,15 +211,6 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 
 **Antonio Paya**
 - GitHub: [@Tonips22](https://github.com/Tonips22)
-
-## 🙏 Agradecimientos
-
-- [Astro](https://astro.build) por el increíble framework
-- [Supabase](https://supabase.com) por la infraestructura backend
-- [Vercel](https://vercel.com) por el hosting
-- [SimplyCountdown.js](https://github.com/VincentLoy/simplyCountdown.js) por la librería de countdown
-- [Typed.js](https://mattboldt.com/demos/typed-js/) por las animaciones de texto
-
 ---
 
 ⭐ Si te gusta este proyecto, considera darle una estrella en GitHub!
