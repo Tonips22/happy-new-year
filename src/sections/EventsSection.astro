@@ -59,25 +59,36 @@ const hasMoreEvents = eventsData.length > initialEventsCount;
 </style>
 
 <script>
-    const showMoreBtn = document.getElementById('show-more-btn');
-    const githubText = document.getElementById('github-issue-text');
-    const hiddenEvents = document.querySelectorAll('.event-item.hidden');
-
-    if (showMoreBtn) {
-        showMoreBtn.addEventListener('click', () => {
-            hiddenEvents.forEach((event, index) => {
-                setTimeout(() => {
-                    event.classList.remove('hidden');
-                }, index * 100); // Animación escalonada
-            });
-            showMoreBtn.style.display = 'none';
+    function initShowMoreButton() {
+        const showMoreBtn = document.getElementById('show-more-btn');
+        const githubText = document.getElementById('github-issue-text');
+        
+        if (showMoreBtn && !showMoreBtn.dataset.initialized) {
+            showMoreBtn.dataset.initialized = 'true';
             
-            // Mostrar el texto del issue después de todos los eventos con animación
-            if (githubText) {
-                setTimeout(() => {
-                    githubText.classList.remove('hidden');
-                }, hiddenEvents.length * 100);
-            }
-        });
+            showMoreBtn.addEventListener('click', () => {
+                const hiddenEvents = document.querySelectorAll('.event-item.hidden');
+                
+                hiddenEvents.forEach((event, index) => {
+                    setTimeout(() => {
+                        event.classList.remove('hidden');
+                    }, index * 100); // Animación escalonada
+                });
+                showMoreBtn.style.display = 'none';
+                
+                // Mostrar el texto del issue después de todos los eventos con animación
+                if (githubText) {
+                    setTimeout(() => {
+                        githubText.classList.remove('hidden');
+                    }, hiddenEvents.length * 100);
+                }
+            });
+        }
     }
+
+    // Inicializar en carga inicial
+    document.addEventListener('DOMContentLoaded', initShowMoreButton);
+    
+    // Reinicializar después de View Transitions
+    document.addEventListener('astro:page-load', initShowMoreButton);
 </script>
