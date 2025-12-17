@@ -87,6 +87,18 @@
             "description": "San Valentín es una celebración del amor y la amistad que se celebra el 14 de febrero en muchos países alrededor del mundo. Es común intercambiar regalos, flores y tarjetas entre parejas y amigos."
         },
         {
+            "title": "Finalissima 2026",
+            "image": "/events/finalissima-2026.webp",
+            "date": {
+                "year": "2026",
+                "month": "03",
+                "day": "27",
+                "time": "22:00"
+            },
+            "location": null,
+            "description": "La Finalissima 2026 es un partido de fútbol que enfrenta a los campeones de la Eurocopa (España) y la Copa América (Argentina). Este evento único celebra la rivalidad y la camaradería entre las dos confederaciones de fútbol, UEFA y CONMEBOL."
+        },
+        {
             "title": "Finalización de La Sagrada Familia",
             "image": "/events/sagrada-familia.webp",
             "date": {
