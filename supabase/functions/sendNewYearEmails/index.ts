@@ -47,25 +47,28 @@ const handler = async (_request)=>{
     // ... Tu HTML completo aquí ...
     const emailHtml = `
       <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; max-width: 600px; font-size: 14px; line-height: 155%; color:0a0a0a">
-          <p>Hola,</p>
+        <p>Hola,</p>
 
-          <p>Espero no pillarte de resaca.</p>
+        <p>Espero que hayas empezado el año como los de resacón, bueno... con todos tus dientes y sin tatuajes nuevos.</p>
 
-          <p>Solo quiero desearte un 2026 lleno de metas cumplidas y sueños que por fin se hacen realidad. Ojalá este año te encuentres con la <span style="color: #FFD700; font-weight: bold;">fuerza</span>, la <span style="color: #FFD700; font-weight: bold;">constancia</span> y la <span style="color: #FFD700; font-weight: bold;">paciencia</span> para construir aquello que más deseas en este mundo.</p>
+        <p>Simplemente deseo que este 2026 te propongas menos cosas… pero las cumplas de verdad. No hace falta una lista gigante de objetivos: con que mejores un poco lo que ya haces, vas por buen camino.</p>
+        
+        <p>Prioriza lo que te hace bien. Atrévete a hacer eso que llevas tiempo posponiendo por miedo a fracasar, si no lo intentas, nada cambia.</p>
 
-          <p>Al final, nada grande llega por casualidad: llega por <span style="color: #FFD700; font-weight: bold;">insistir, insistir, insistir... e insistir incluso cuando nos den por muerto/a.</span></p>
+        <p style=" font-weight: bold;">No tiene que ser un año perfecto, solo un año mejor.</p>
+        
+        <p>Brindo por que este año te atrevas un poco más, avances aunque sea despacio y confíes un poco más en ti.</p>
 
-          <p>Brindo porque este año te atrevas un poco más, avances un poco más y creas en ti mucho más.</p>
+        <p>Feliz Año Nuevo.</p>
 
-          <p>Feliz Año Nuevo.</p>
-          <p>Que venga cargado de verdad.</p>
+        <p>
+          Un abrazo,<br>
+          Toni
+        </p>
 
-          <p>Un abrazo,</p>
-          <p>Toni</p>
-
-          <a href="https://www.happynewyear.es/" style="color: #FFD700; font-size: 10px; font-style: italic;">happynewyear.es</a>
-          <a href="${unsubUrl}" style="color: 0a0a0a; margin-left: 8px; font-size: 10px; font-style: italic;">Cancelar subscripción</a>
-                    
+        <a href="https://www.happynewyear.es/" style="color: #FFD700; font-size: 10px; font-style: italic;">happynewyear.es</a>
+        <a href="${unsubUrl}" style="color: #FFD700; margin-left: 8px; font-size: 10px; font-style: italic;">Cancelar subscripción</a>
+                  
       </body>
     `;
     try {
