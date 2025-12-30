@@ -1,22 +1,118 @@
 {
     "events": [
         {
-            "title": "Día de la Inmaculada Concepción",
-            "image": "/events/inmaculada.webp",
+            "title": "Reyes Magos",
+            "image": "/events/reyes-magos.webp",
             "date": {
-                "year": "2025",
-                "month": "12",
-                "day": "08",
+                "year": "2026",
+                "month": "01",
+                "day": "06",
                 "time": "00:00"
             },
-            "location": "Madrid, España",
-            "description": "Celebramos la Inmaculada Concepción, una festividad religiosa que honra a la Virgen María y su pureza sin pecado original."
+            "location": null,
+            "description": "Los Reyes Magos es una celebración tradicional que tiene lugar el 6 de enero en muchos países hispanohablantes. Se conmemora la visita de los tres Reyes Magos al niño Jesús, y es común que los niños reciban regalos en esta fecha."
+        },
+        {
+            "title": "San Valentín",
+            "image": "/events/san-valentin.webp",
+            "date": {
+                "year": "2026",
+                "month": "02",
+                "day": "14",
+                "time": "00:00"
+            },
+            "location": null,
+            "description": "San Valentín es una celebración del amor y la amistad que se celebra el 14 de febrero en muchos países alrededor del mundo. Es común intercambiar regalos, flores y tarjetas entre parejas y amigos."
+        },
+        {
+            "title": "Día del Padre",
+            "image": "/events/dia-del-padre.webp",
+            "date": {
+                "year": "2026",
+                "month": "03",
+                "day": "19",
+                "time": "00:00"
+            },
+            "location": null,
+            "description": "El Día del Padre es una celebración dedicada a honrar a los padres y la paternidad. Se celebra en diferentes fechas alrededor del mundo, y en muchos países hispanohablantes tiene lugar el 19 de marzo."
+        },
+        {
+            "title": "Día de la Madre",
+            "image": "/events/dia-madre.webp",
+            "date": {
+                "year": "2026",
+                "month": "05",
+                "day": "03",
+                "time": "00:00"
+            },
+            "location": null,
+            "description": "El Día de la Madre es una celebración dedicada a honrar a las madres y la maternidad. Se celebra en diferentes fechas alrededor del mundo, y en muchos países hispanohablantes tiene lugar el segundo domingo de mayo."
+        },
+        {
+            "title": "Finalissima 2026",
+            "image": "/events/finalissima-2026.webp",
+            "date": {
+                "year": "2026",
+                "month": "03",
+                "day": "27",
+                "time": "22:00"
+            },
+            "location": null,
+            "description": "La Finalissima 2026 es un partido de fútbol que enfrenta a los campeones de la Eurocopa (España) y la Copa América (Argentina). Este evento único celebra la rivalidad y la camaradería entre las dos confederaciones de fútbol, UEFA y CONMEBOL."
+        },
+        {
+            "title": "Finalización de La Sagrada Familia",
+            "image": "/events/sagrada-familia.webp",
+            "date": {
+                "year": "2026",
+                "month": "06",
+                "day": "10",
+                "time": "18:00"
+            },
+            "location": null,
+            "description": "La finalización de La Sagrada Familia, una obra maestra arquitectónica diseñada por Antoni Gaudí en Barcelona, España. Esta icónica basílica ha estado en construcción durante más de un siglo y se espera que su finalización sea un evento histórico y cultural significativo."
+        },
+        {
+            "title": "Mundial de Fútbol 2026",
+            "image": "/events/mundial-2026.webp",
+            "date": {
+                "year": "2026",
+                "month": "06",
+                "day": "11",
+                "time": "00:00"
+            },
+            "location": null,
+            "description": "El Mundial de Fútbol 2026 será la 23ª edición de la Copa Mundial de la FIFA. Por primera vez, el torneo será organizado conjuntamente por tres países: Estados Unidos, Canadá y México. Se espera que sea el torneo más grande hasta la fecha, con 48 equipos compitiendo por el título."
+        },
+        {
+            "title": "Avengers: Doomsday",
+            "image": "/events/avengers-doomsday.webp",
+            "date": {
+                "year": "2026",
+                "month": "12",
+                "day": "18",
+                "time": "00:00"
+            },
+            "location": null,
+            "description": "La próxima entrega de la saga de los Vengadores en el Universo Cinematográfico de Marvel (MCU). Esta película promete reunir a varios héroes icónicos para enfrentar una amenaza global que pondrá a prueba sus habilidades y su unidad."
+        },
+        {
+            "title": "Grand Theft Auto VI",
+            "image": "/events/gta6.webp",
+            "date": {
+                "year": "2026",
+                "month": "11",
+                "day": "19",
+                "time": "00:00"
+            },
+            "location": null,
+            "description": "La próxima entrega de la serie Grand Theft Auto, desarrollada por Rockstar Games. Ambientada en una versión ficticia de Vice City, promete una experiencia de mundo abierto aún más inmersiva y detallada."
         },
         {
             "title": "Lotería de Navidad",
             "image": "/events/loteria-navidad.webp",
             "date": {
-                "year": "2025",
+                "year": "2026",
                 "month": "12",
                 "day": "22",
                 "time": "09:00"
@@ -28,7 +124,7 @@
             "title": "Navidad",
             "image": "/events/navidad.webp",
             "date": {
-                "year": "2025",
+                "year": "2026",
                 "month": "12",
                 "day": "25",
                 "time": "00:00"
@@ -37,43 +133,55 @@
             "description": "Celebramos la Navidad, una festividad que conmemora el nacimiento de Jesucristo y se celebra con tradiciones como el intercambio de regalos, la decoración del árbol de Navidad y reuniones familiares."
         },
         {
-            "title": "Sorteo Mundial de Fútbol 2026",
-            "image": "/events/sorteo-futbol.webp",
+            "title": "San Fermines",
+            "image": "/events/san-fermines.webp",
             "date": {
-                "year": "2025",
-                "month": "12",
-                "day": "05",
-                "time": "18:00"
+                "year": "2026",
+                "month": "07",
+                "day": "07",
+                "time": "07:00"
             },
-            "location": "Centro Kennedy de Washington D.C., Estados Unidos",
-            "description": "El sorteo del Mundial de Fútbol 2026, donde se determinarán los grupos y enfrentamientos para la próxima Copa Mundial de la FIFA, que será organizada conjuntamente por Estados Unidos, Canadá y México."
+            "location": "Pamplona, España",
+            "description": "Los San Fermines son una festividad tradicional que se celebra en Pamplona, España, del 7 al 14 de julio. Es famosa por sus encierros, donde los participantes corren delante de toros por las calles de la ciudad, así como por sus eventos culturales, música y bailes."
         },
         {
-            "title": "Día de los Inocentes",
-            "image": "/events/dia-inocentes.webp",
+            "title": "Feria de Abril",
+            "image": "/events/feria.webp",
             "date": {
-                "year": "2025",
-                "month": "12",
-                "day": "28",
+                "year": "2026",
+                "month": "04",
+                "day": "20",
+                "time": "00:00"
+            },
+            "location": "Sevilla, España",
+            "description": "La Feria de Abril es una festividad tradicional que se celebra en Sevilla, España, generalmente dos semanas después de la Semana Santa. Durante esta feria, la ciudad se llena de casetas decoradas, música flamenca, bailes, trajes típicos y una gran variedad de comida y bebida típica andaluza."
+        },
+        {
+            "title": "San Juan",
+            "image": "/events/san-juan.webp",
+            "date": {
+                "year": "2026",
+                "month": "06",
+                "day": "24",
                 "time": "00:00"
             },
             "location": "España",
-            "description": "El Día de los Inocentes es una festividad similar al April Fools' Day, donde las personas gastan bromas y engaños a amigos y familiares. Se celebra el 28 de diciembre en España y otros países hispanohablantes."
+            "description": "La festividad de San Juan se celebra en España la noche del 23 al 24 de junio, marcando el solsticio de verano. Es una noche llena de tradiciones, donde se encienden hogueras, se lanzan fuegos artificiales y se realizan rituales para atraer la buena suerte y alejar los malos espíritus."
         },
         {
-            "title": "Discurso del Rey",
-            "image": "/events/discurso-rey.webp",
+            "title": "Carnavales",
+            "image": "/events/carnavales.webp",
             "date": {
-                "year": "2025",
-                "month": "12",
-                "day": "24",
-                "time": "21:00"
+                "year": "2026",
+                "month": "01",
+                "day": "16",
+                "time": "00:00"
             },
-            "location": "Madrid, España",
-            "description": "El rey de España pronuncia su tradicional discurso de Navidad, dirigido a todos los ciudadanos, reflexionando sobre el año que termina y compartiendo mensajes de esperanza y unidad para el año venidero."
+            "location": "Tenerife y Cádiz, España",
+            "description": "Los carnavales de Tenerife y Cádiz son una de las celebraciones más importantes y coloridas de España. Se caracterizan por desfiles, disfraces elaborados, música, bailes y una gran participación popular que llena las calles de alegría y diversión."
         }
     ],
-    "events2026": [
+    "events2027": [
         {
             "title": "San Valentín",
             "image": "/events/san-valentin.webp",
