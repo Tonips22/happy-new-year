@@ -37,6 +37,18 @@
             "description": "El Día del Padre es una celebración dedicada a honrar a los padres y la paternidad. Se celebra en diferentes fechas alrededor del mundo, y en muchos países hispanohablantes tiene lugar el 19 de marzo."
         },
         {
+            "title": "Torrente Presidente",
+            "image": "/events/torrente-presidente.webp",
+            "date": {
+                "year": "2026",
+                "month": "03",
+                "day": "13",
+                "time": "00:00"
+            },
+            "location": null,
+            "description": "Torrente Presidente es la sexta entrega de la saga de películas de comedia española protagonizada por Santiago Segura. En esta película, el personaje principal, José Luis Torrente, se postula para presidente de España, lo que da lugar a una serie de situaciones cómicas y satíricas sobre la política y la sociedad española."
+        },
+        {
             "title": "Día de la Madre",
             "image": "/events/dia-madre.webp",
             "date": {
