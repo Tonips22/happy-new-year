@@ -68,7 +68,6 @@ const handler = async (_request)=>{
 
         <a href="https://www.happynewyear.es/" style="color: #FFD700; font-size: 10px; font-style: italic;">happynewyear.es</a>
         <a href="${unsubUrl}" style="color: #FFD700; margin-left: 8px; font-size: 10px; font-style: italic;">Cancelar subscripción</a>
-                  
       </body>
     `;
     try {
