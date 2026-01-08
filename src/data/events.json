@@ -69,7 +69,7 @@
                 "day": "30",
                 "time": "21:00"
             },
-            "location": null,
+            "location": "Puskás Aréna, Hungría",
             "description": "La Final de la UEFA Champions League es el partido decisivo del torneo de clubes más prestigioso de Europa. En 2026, la final se llevará a cabo Puskás Aréna de Budapest, Hungría, y enfrentará a los dos mejores equipos de la competición por el título."
         },
         {
@@ -81,7 +81,7 @@
                 "day": "27",
                 "time": "22:00"
             },
-            "location": null,
+            "location": "Lusail Stadium, Qatar",
             "description": "La Finalissima 2026 es un partido de fútbol que enfrenta a los campeones de la Eurocopa (España) y la Copa América (Argentina). Este evento único celebra la rivalidad y la camaradería entre las dos confederaciones de fútbol, UEFA y CONMEBOL."
         },
         {
@@ -93,7 +93,7 @@
                 "day": "10",
                 "time": "18:00"
             },
-            "location": null,
+            "location": "Barcelona, España",
             "description": "La finalización de La Sagrada Familia, una obra maestra arquitectónica diseñada por Antoni Gaudí en Barcelona, España. Esta icónica basílica ha estado en construcción durante más de un siglo y se espera que su finalización sea un evento histórico y cultural significativo."
         },
         {
@@ -105,7 +105,7 @@
                 "day": "11",
                 "time": "00:00"
             },
-            "location": null,
+            "location": "Estados Unidos, Canadá y México",
             "description": "El Mundial de Fútbol 2026 será la 23ª edición de la Copa Mundial de la FIFA. Por primera vez, el torneo será organizado conjuntamente por tres países: Estados Unidos, Canadá y México. Se espera que sea el torneo más grande hasta la fecha, con 48 equipos compitiendo por el título."
         },
         {
@@ -141,7 +141,7 @@
                 "day": "22",
                 "time": "09:00"
             },
-            "location": "Madrid, España",
+            "location": null,
             "description": "Celebramos la Navidad, una festividad que conmemora el nacimiento de Jesucristo y se celebra con tradiciones como el intercambio de regalos, la decoración del árbol de Navidad y reuniones familiares."
         },
         {
@@ -153,7 +153,7 @@
                 "day": "25",
                 "time": "00:00"
             },
-            "location": "Madrid, España",
+            "location": null,
             "description": "Celebramos la Navidad, una festividad que conmemora el nacimiento de Jesucristo y se celebra con tradiciones como el intercambio de regalos, la decoración del árbol de Navidad y reuniones familiares."
         },
         {
@@ -189,7 +189,7 @@
                 "day": "24",
                 "time": "00:00"
             },
-            "location": "España",
+            "location": null,
             "description": "La festividad de San Juan se celebra en España la noche del 23 al 24 de junio, marcando el solsticio de verano. Es una noche llena de tradiciones, donde se encienden hogueras, se lanzan fuegos artificiales y se realizan rituales para atraer la buena suerte y alejar los malos espíritus."
         },
         {
@@ -227,7 +227,7 @@
                 "day": "27",
                 "time": "22:00"
             },
-            "location": null,
+            "location": "Qatar",
             "description": "La Finalissima 2026 es un partido de fútbol que enfrenta a los campeones de la Eurocopa (España) y la Copa América (Argentina). Este evento único celebra la rivalidad y la camaradería entre las dos confederaciones de fútbol, UEFA y CONMEBOL."
         },
         {

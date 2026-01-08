@@ -23,6 +23,7 @@ const hasMoreEvents = eventsData.length > initialEventsCount;
                     description={event.description} 
                     targetDate={`${event.date.year}-${event.date.month}-${event.date.day}T${event.date.time}:00`}
                     image={event.image ?? ""}
+                    location={event.location ?? ""}
                 />
             </div>
         ))}
