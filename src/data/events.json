@@ -61,6 +61,18 @@
             "description": "El Día de la Madre es una celebración dedicada a honrar a las madres y la maternidad. Se celebra en diferentes fechas alrededor del mundo, y en muchos países hispanohablantes tiene lugar el segundo domingo de mayo."
         },
         {
+            "title": "Final Uefa Champions League",
+            "image": "/events/champions-league.webp",
+            "date": {
+                "year": "2026",
+                "month": "05",
+                "day": "30",
+                "time": "21:00"
+            },
+            "location": null,
+            "description": "La Final de la UEFA Champions League es el partido decisivo del torneo de clubes más prestigioso de Europa. En 2026, la final se llevará a cabo Puskás Aréna de Budapest, Hungría, y enfrentará a los dos mejores equipos de la competición por el título."
+        },
+        {
             "title": "Finalissima 2026",
             "image": "/events/finalissima-2026.webp",
             "date": {
