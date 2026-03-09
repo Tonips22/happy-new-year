@@ -121,6 +121,18 @@
             "description": "El Mundial de Fútbol 2026 será la 23ª edición de la Copa Mundial de la FIFA. Por primera vez, el torneo será organizado conjuntamente por tres países: Estados Unidos, Canadá y México. Se espera que sea el torneo más grande hasta la fecha, con 48 equipos compitiendo por el título."
         },
         {
+            "title": "La Velada del Año VI",
+            "image": "/events/la-velada.webp",
+            "date": {
+                "year": "2026",
+                "month": "07",
+                "day": "25",
+                "time": "19:00"
+            },
+            "location": "Estadio de la Cartuja, Sevilla, España",
+            "description": "La Velada del Año VI es un evento deportivo que reúne a los mejores boxeadores y artistas en una noche llena de emoción y entretenimiento. Este evento promete ser una experiencia inolvidable para los aficionados al deporte y al espectáculo."
+        },
+        {
             "title": "Avengers: Doomsday",
             "image": "/events/avengers-doomsday.webp",
             "date": {
