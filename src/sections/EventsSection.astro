@@ -2,11 +2,36 @@
 import EventAccordion from "@components/EventAccordion.astro"
 import events from "@/data/events.json";
 const eventsData = events.events;
-// Ordenar eventos por fecha ascendente
+
+// Determina el grupo de ordenación de cada evento:
+//   0 → finalizado en el último mes
+//   1 → todavía no ha finalizado (próximo)
+//   2 → finalizado hace más de un mes
+const now = new Date();
+const oneMonthAgo = new Date(now);
+oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+
+function getEventGroup(event: typeof eventsData[0]): number {
+    const eventDate = new Date(`${event.date.year}-${event.date.month}-${event.date.day}T${event.date.time}:00`);
+    if (eventDate >= oneMonthAgo && eventDate < now) return 0;
+    if (eventDate >= now) return 1;
+    return 2;
+}
+
 eventsData.sort((a, b) => {
     const dateA = new Date(`${a.date.year}-${a.date.month}-${a.date.day}T${a.date.time}:00`);
     const dateB = new Date(`${b.date.year}-${b.date.month}-${b.date.day}T${b.date.time}:00`);
-    return dateA.getTime() - dateB.getTime();
+    const groupA = getEventGroup(a);
+    const groupB = getEventGroup(b);
+
+    if (groupA !== groupB) return groupA - groupB;
+
+    // Grupo 0 (finalizados en el último mes): más reciente primero
+    if (groupA === 0) return dateB.getTime() - dateA.getTime();
+    // Grupo 1 (próximos): más cercano primero
+    if (groupA === 1) return dateA.getTime() - dateB.getTime();
+    // Grupo 2 (finalizados hace más de un mes): más reciente primero
+    return dateB.getTime() - dateA.getTime();
 });
 
 const initialEventsCount = 4;
