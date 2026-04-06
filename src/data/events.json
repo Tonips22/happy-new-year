@@ -85,18 +85,6 @@
             "description": "La Final de la UEFA Champions League es el partido decisivo del torneo de clubes más prestigioso de Europa. En 2026, la final se llevará a cabo Puskás Aréna de Budapest, Hungría, y enfrentará a los dos mejores equipos de la competición por el título."
         },
         {
-            "title": "Finalissima 2026",
-            "image": "/events/finalissima-2026.webp",
-            "date": {
-                "year": "2026",
-                "month": "03",
-                "day": "27",
-                "time": "22:00"
-            },
-            "location": "Lusail Stadium, Qatar",
-            "description": "La Finalissima 2026 es un partido de fútbol que enfrenta a los campeones de la Eurocopa (España) y la Copa América (Argentina). Este evento único celebra la rivalidad y la camaradería entre las dos confederaciones de fútbol, UEFA y CONMEBOL."
-        },
-        {
             "title": "Finalización de La Sagrada Familia",
             "image": "/events/sagrada-familia.webp",
             "date": {
