@@ -121,6 +121,18 @@
             "description": "La Velada del Año VI es un evento deportivo que reúne a los mejores boxeadores y artistas en una noche llena de emoción y entretenimiento. Este evento promete ser una experiencia inolvidable para los aficionados al deporte y al espectáculo."
         },
         {
+            "title": "Spider-Man: Brand New Day",
+            "image": "/events/spider-man.webp",
+            "date": {
+                "year": "2026",
+                "month": "07",
+                "day": "31",
+                "time": "19:00"
+            },
+            "location": null,
+            "description": "La próxima entrega de la saga de los Vengadores en el Universo Cinematográfico de Marvel (MCU). Esta película promete reunir a varios héroes icónicos para enfrentar una amenaza global que pondrá a prueba sus habilidades y su unidad."
+        },
+        {
             "title": "Avengers: Doomsday",
             "image": "/events/avengers-doomsday.webp",
             "date": {
