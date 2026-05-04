@@ -16,7 +16,7 @@ const { title, description } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/png" href="/favicon.png" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<meta name="description" content={description} />
 		<meta name="keywords" content="año nuevo, 2026, countdown, celebración, eventos, año nuevo mundial, zonas horarias" />
 		<meta name="author" content="tonigt.dev" />
@@ -27,21 +27,21 @@ const { title, description } = Astro.props;
 		<meta property="og:url" content="https://www.happynewyear.es/" />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
-		<meta property="og:image" content="https://www.happynewyear.es/og-image.webp" />
+		<meta property="og:image" content="https://www.happynewyear.es/og_image.webp" />
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:url" content="https://www.happynewyear.es/" />
 		<meta property="twitter:title" content={title} />
 		<meta property="twitter:description" content={description} />
-		<meta property="twitter:image" content="https://www.happynewyear.es/og-image.png" />
+		<meta property="twitter:image" content="https://www.happynewyear.es/og_image.webp" />
 
 		<!-- Canonical URL -->
 		<link rel="canonical" href="https://www.happynewyear.es/" />
 
 		<!-- Theme Color -->
 		<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
-		<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+		<meta name="theme-color" content="#fffce7" media="(prefers-color-scheme: light)" />
 
 		<!-- Script inline para evitar flash de tema incorrecto (FOUC) -->
 		<script is:inline>
@@ -87,19 +87,19 @@ const { title, description } = Astro.props;
 		--bg: #0a0a0a;
 		--text: #ffffff;
 		--text60: #ffffff60;
-		--gold: #FFD700;
-		--gold25: #ffd70040;
-		--gold-alt: #FFA500;
+		--gold: #00ffb7;
+		--gold25: #00ffb740;
+		--gold-alt: #00ffb7aa;
 	}
 
 	/* Tema claro */
 	:root.light {
-		--bg: #ffffff;
+		--bg: #fffce7;
 		--text: #0a0a0a;
 		--text60: #0a0a0a60;
-		--gold: #DAA520;
-		--gold25: #DAA52040;
-		--gold-alt: #FF8C00;
+		--gold: #007957;
+		--gold25: #00795740;
+		--gold-alt: #007957aa;
 	}
 	
 	html { 
