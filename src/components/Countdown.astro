@@ -183,7 +183,7 @@
 
           // Inicializar Typed.js DESPUÉS de mostrar el elemento
           new Typed('#mensaje-final h2', {
-            strings: ['¡Feliz Año Nuevo 2026!'],
+            strings: ['¡Feliz Año Nuevo 2027!'],
             loop: false,
             typeSpeed: 200,
             showCursor: false,
@@ -202,4 +202,37 @@
 
   // Reinicializar después de navegaciones con View Transitions
   document.addEventListener('astro:page-load', initCountdown);
+</script>
+
+<script>
+  // Cambiar el título cuando el usuario cambia de pestaña
+  const title = document.title;
+  const targetDate = new Date(`${new Date().getFullYear() + 1}-01-01T00:00:00+01:00`);
+
+  function getCountdownTitle(): string {
+    const diff = targetDate.getTime() - Date.now();
+    if (diff <= 0) return '¡Feliz Año Nuevo!';
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    return `${d}d · ${h}h · ${m}m · ${s}s`;
+  }
+
+  if ((window as any).__visibilityHandler) {
+    document.removeEventListener('visibilitychange', (window as any).__visibilityHandler);
+  }
+  if ((window as any).__titleInterval) clearInterval((window as any).__titleInterval);
+
+  (window as any).__visibilityHandler = () => {
+    if (document.visibilityState === 'hidden') {
+      document.title = getCountdownTitle();
+      (window as any).__titleInterval = setInterval(() => { document.title = getCountdownTitle(); }, 1000);
+    } else {
+      clearInterval((window as any).__titleInterval);
+      document.title = title;
+    }
+  };
+
+  document.addEventListener('visibilitychange', (window as any).__visibilityHandler);
 </script>
