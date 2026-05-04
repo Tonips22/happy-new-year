@@ -1,6 +1,6 @@
-# 🎉 Happy New Year 2026
+# 🎉 Happy New Year 2027
 
-Una aplicación web moderna y elegante para celebrar la llegada del Año Nuevo 2026, con cuentas atrás sincronizadas para diferentes zonas horarias alrededor del mundo.
+Una aplicación web moderna y elegante para celebrar la llegada del Año Nuevo 2027, con cuentas atrás sincronizadas para diferentes zonas horarias alrededor del mundo.
 
 ![Astro](https://img.shields.io/badge/Astro-FF5D01?style=for-the-badge&logo=astro&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
@@ -9,7 +9,7 @@ Una aplicación web moderna y elegante para celebrar la llegada del Año Nuevo 2
 
 ## ✨ Características
 
-- 🕐 **Cuenta atrás principal**: Contador dinámico hasta la medianoche del 1 de enero 2026 (CET)
+- 🕐 **Cuenta atrás principal**: Contador dinámico hasta la medianoche del 1 de enero 2027 (CET)
 - 🌍 **Múltiples zonas horarias**: Visualiza cuándo llega el Año Nuevo en 12 países diferentes
 - 🌓 **Modo oscuro/claro**: Toggle profesional con persistencia en localStorage
 - 📧 **Sistema de suscripción**: Recibe notificaciones por email usando Supabase Edge Functions
@@ -215,4 +215,4 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 
 ⭐ Si te gusta este proyecto, considera darle una estrella en GitHub!
 
-🎊 ¡Feliz Año Nuevo 2026! 🎊
+🎊 ¡Feliz Año Nuevo 2027! 🎊
