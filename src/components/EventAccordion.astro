@@ -24,10 +24,13 @@ const eventId = `event-${title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z
 ---
 
 <article 
-  class="event-accordion min-h-[135px] md:min-h-auto border-2 border-gold rounded-xl overflow-hidden transition-all duration-150 ease-in-out hover:border-gold-alt hover:scale-102 hover:shadow-md relative group"
+  class="event-accordion min-h-[165px] md:min-h-[137px] border-2 border-gold rounded-xl overflow-hidden transition-all duration-150 ease-in-out hover:border-gold-alt hover:scale-102 hover:shadow-md relative group"
   data-event-id={eventId}
   data-target-date={targetDate}
   data-timezone={timezone}
+  data-title={title}
+  data-description={description}
+  data-location={location}
 >
     {image && (
           <img src={image} alt={title} loading="lazy" class="event-accordion-image absolute top-0 -z-10 left-0 w-full h-full object-cover" />
@@ -42,6 +45,13 @@ const eventId = `event-${title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z
             <!-- Contenedor para SimplyCountdown -->
             <div class="event-countdown" id={eventId}></div>
         </div>
+
+        {location && (
+            <span class="flex items-center gap-1 text-text60 text-sm mt-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-icon lucide-map-pin text-xs text-red-500"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+              {location}
+            </span>
+          )}
     </div>
     
     <ArrowDown class="accordion-icon text-base text-gold transition-transform duration-300 shrink-0 group-hover:text-gold-alt" />
@@ -64,12 +74,10 @@ const eventId = `event-${title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z
             })}
           </time>
 
-          {location && (
-            <span class="flex items-center gap-1 text-text60 text-sm mt-1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-icon lucide-map-pin text-xs text-red-500"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
-              {location}
-            </span>
-          )}
+          <button class="add-to-calendar-btn flex flex-row items-center gap-1 text-gold font-medium text-sm hover:text-gold-alt transition-colors duration-200 cursor-pointer" title="Añadir al calendario">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-calendar-plus-icon lucide-calendar-plus" viewBox="0 0 24 24"><path d="M16 19h6M16 2v4m3 10v6m2-9.402V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8.5M3 10h18M8 2v4"/></svg>
+            Añadir al calendario
+          </button>
         </div>
       </div>
     </div>
@@ -174,6 +182,7 @@ const eventId = `event-${title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z
 
 <script>
   import simplyCountdown from 'simplycountdown.js';
+  import addToCalendar from '@/utils/addToCalendar';
 
   function initEventAccordions() {
     const accordions = document.querySelectorAll('[data-event-id]');
@@ -274,15 +283,38 @@ const eventId = `event-${title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z
     });
   }
   
+  function setupCalendarListeners() {
+    document.addEventListener('click', (e) => {
+      const btn = (e.target as HTMLElement).closest('.add-to-calendar-btn');
+      if (!btn) return;
+
+      const accordion = btn.closest('[data-event-id]') as HTMLElement;
+      if (!accordion) return;
+
+      e.preventDefault();
+      e.stopPropagation();
+
+      const title = accordion.dataset.title ?? '';
+      const description = accordion.dataset.description;
+      const location = accordion.dataset.location;
+      const targetDate = accordion.dataset.targetDate ?? '';
+      const startDate = new Date(targetDate);
+
+      addToCalendar({ title, description, location, startDate });
+    });
+  }
+
   // Inicializar cuando el DOM esté listo
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       initEventAccordions();
       setupAccordionListeners();
+      setupCalendarListeners();
     });
   } else {
     initEventAccordions();
     setupAccordionListeners();
+    setupCalendarListeners();
   }
 
   // Reinicializar después de navegaciones con View Transitions
