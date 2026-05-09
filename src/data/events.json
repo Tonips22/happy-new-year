@@ -82,7 +82,7 @@
                 "time": "21:00"
             },
             "location": "Puskás Aréna, Hungría",
-            "description": "La Final de la UEFA Champions League es el partido decisivo del torneo de clubes más prestigioso de Europa. En 2026, la final se llevará a cabo Puskás Aréna de Budapest, Hungría, y enfrentará a los dos mejores equipos de la competición por el título."
+            "description": "La Final de la UEFA Champions League es el partido decisivo del torneo de clubes más prestigioso de Europa. En 2026, la final se llevará a cabo Puskás Aréna de Budapest, Hungría, y enfrentará al Paris Saint-Germain F.C. y al Arsenal F.C., dos de los clubes más exitosos y populares del fútbol europeo."
         },
         {
             "title": "Finalización de La Sagrada Familia",
@@ -143,6 +143,18 @@
             },
             "location": null,
             "description": "La próxima entrega de la saga de los Vengadores en el Universo Cinematográfico de Marvel (MCU). Esta película promete reunir a varios héroes icónicos para enfrentar una amenaza global que pondrá a prueba sus habilidades y su unidad."
+        },
+        {
+            "title": "Halloween",
+            "image": "/events/halloween.webp",
+            "date": {
+                "year": "2026",
+                "month": "10",
+                "day": "31",
+                "time": "00:00"
+            },
+            "location": null,
+            "description": "Halloween es una festividad que se celebra el 31 de octubre en muchos países alrededor del mundo. Es conocida por sus tradiciones como el disfrazarse, pedir dulces, decorar con calabazas y organizar fiestas temáticas de terror."
         },
         {
             "title": "Grand Theft Auto VI",
@@ -227,6 +239,66 @@
             },
             "location": "Tenerife y Cádiz, España",
             "description": "Los carnavales de Tenerife y Cádiz son una de las celebraciones más importantes y coloridas de España. Se caracterizan por desfiles, disfraces elaborados, música, bailes y una gran participación popular que llena las calles de alegría y diversión."
+        },
+        {
+            "title": "Black Friday",
+            "image": "/events/black-friday.webp",
+            "date": {
+                "year": "2026",
+                "month": "11",
+                "day": "27",
+                "time": "00:00"
+            },
+            "location": null,
+            "description": "El Black Friday inaugura la temporada de compras navideñas con descuentos masivos en tecnología, moda y otros productos."
+        },
+        {
+            "title": "Gran Premio de España F1",
+            "image": "/events/f1.webp",
+            "date": {
+                "year": "2026",
+                "month": "09",
+                "day": "11",
+                "time": "00:00"
+            },
+            "location": "Madrid, España",
+            "description": "El Gran Premio de España de Fórmula 1 reúne a los mejores pilotos del mundo en una de las competiciones automovilísticas más importantes."
+        },
+        {
+            "title": "Spotify Wrapped",
+            "image": "/events/spotify-wrapped.webp",
+            "date": {
+                "year": "2026",
+                "month": "12",
+                "day": "03",
+                "time": "10:00"
+            },
+            "location": null,
+            "description": "Spotify Wrapped muestra el resumen anual de música escuchada por cada usuario, convirtiéndose cada año en un fenómeno viral en redes sociales."
+        },
+        {
+            "title": "Premios Oscar",
+            "image": "/events/oscars.webp",
+            "date": {
+                "year": "2026",
+                "month": "03",
+                "day": "16",
+                "time": "12:00"
+            },
+            "location": null,
+            "description": "La 98.ª edición de los Premios Óscar, organizada por la Academia de Artes y Ciencias Cinematográficas, honra a las mejores películas estrenadas en 2025."
+        },
+        {
+            "title": "El Clásico (vuelta)",
+            "image": "/events/el-clasico.webp",
+            "date": {
+                "year": "2026",
+                "month": "05",
+                "day": "10",
+                "time": "21:00"
+            },
+            "location": "Camp Nou, Barcelona, España",
+            "description": "El enfrentamiento entre el Real Madrid y el FC Barcelona es uno de los partidos más vistos del mundo y genera millones de conversaciones en redes sociales. En esta ocasión, el partido de vuelta se disputará en el Camp Nou, disputándose la liga española en su fase final."
         }
     ],
     "events2027": [
