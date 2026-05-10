@@ -1,7 +1,7 @@
 {
     "countries": [
   {
-    "name": "Reino Unido",
+    "name": "R.U.",
     "timezone": "Europe/London",
     "flag": "/icons/flags/uk.svg",
     "utcOffset": 0
